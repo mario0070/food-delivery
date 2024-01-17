@@ -4,10 +4,11 @@ import banner1 from "/img/home-banner1.jpg"
 import banner2 from "/img/home-banner2.jpg"
 import banner3 from "/img/home-banner3.jpg"
 import logo from "/img/logo.svg"
+import Footer from '../components/footer'
 
 export default function LandingPage() {
   return (
-    <div className='landing mb-5'>
+    <div className='landing'>
       <div className="section1">
           <div className="topbar d-flex">
               <div className="d-flex">
@@ -16,14 +17,18 @@ export default function LandingPage() {
               </div>
               <div className="d-flex links">
                 <p className="mb-0"><a href="/">Home</a></p>
-                <p className="mb-0"><a href="">Log In</a></p>
-                <p className="mb-0"><a href="">Sign Up</a></p>
+                <p className="mb-0"><a href="/login">Log In</a></p>
+                <p className="mb-0"><a href="/register">Sign Up</a></p>
                 <p className="mb-0"><a href="">Vendors</a></p>
-                <p className="mb-0"><a href="">About Us</a></p>
+                <p className="mb-0"><a href="/about-us">About Us</a></p>
                 <p className="mb-0"><a href="">Join Our Agents</a></p>
+                {/* <p className="mb-0"><a href="/vendor-dashboard">Vendor Dashboard</a></p>
+                <p className="mb-0"><a href="/agent-dashboard">Agent Dashboard</a></p>
+                <p className="mb-0"><a href="/user-dashboard">User Dashboard</a></p> */}
               </div>
           </div>
       </div>
+
       <div className="carousel slide carousel-fade img"  id="demo"  data-bs-ride="carousel">
         <div className="carousel-inner">
           <div className="carousel-item active">
@@ -59,6 +64,58 @@ export default function LandingPage() {
         </div>
         
       </div>
+
+      <div className="section2 mt-5">
+        <p className="text-center top mb-1">SUPER DELICIOUS</p>
+        <h2 className='text-center'>Super Delicious Deal</h2>
+
+        <div className="d-flex flex-wrap">
+            <div className="content">
+              <img src={banner1} alt="" />
+              <div className="p-4">
+                <h5 className="">Crispy Fry Burger</h5>
+                <p className="mb-0 text-start">Howdy Special, A well-seasoned, crispy fried chicken fillet slathered</p>
+              </div>
+            </div>
+            <div className="content">
+              <img src={banner1} alt="" />
+              <div className="p-4">
+                <h5 className="">Fandango Burger</h5>
+                <p className="mb-0 text-start">Potato skins, chicken strips, toasted ravioli and mozzarella sticks served </p>
+              </div>
+            </div>
+            <div className="content">
+              <img src={banner1} alt="" />
+              <div className="p-4">
+                <h5 className="">Wrangler Burger</h5>
+                <p className="mb-0 text-start">Blackened chicken, sauteed onions and peppers smothered with pepper jack</p>
+              </div>
+            </div>
+            <div className="content">
+              <img src={banner1} alt="" />
+              <div className="p-4">
+                <h5 className="">Crispy Fry Burger</h5>
+                <p className="mb-0 text-start">Howdy Special, A well-seasoned, crispy fried chicken fillet slathered</p>
+              </div>
+            </div>
+            <div className="content">
+              <img src={banner1} alt="" />
+              <div className="p-4">
+                <h5 className="">Fandango Burger</h5>
+                <p className="mb-0 text-start">Potato skins, chicken strips, toasted ravioli and mozzarella sticks served </p>
+              </div>
+            </div>
+            <div className="content">
+              <img src={banner1} alt="" />
+              <div className="p-4">
+                <h5 className="">Wrangler Burger</h5>
+                <p className="mb-0 text-start">Blackened chicken, sauteed onions and peppers smothered with pepper jack</p>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <Footer/>
     </div>
   )
 }
