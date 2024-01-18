@@ -38,17 +38,7 @@ export default function LandingPage() {
 
       <div className="carousel slide carousel-fade img"  id="demo"  data-bs-ride="carousel">
         <div className="carousel-inner">
-        <div className="carousel-item active">
-          <img src={banner2} alt="Los Angeles" className="d-block"/>
-          <div className="carousel-caption text-start">
-            <h3>Choose Your Favorite</h3>
-            <p>Only natural food</p>
-            <span className='d-block'>Choose your favorite meals and order online or by phone. It's easy to customize your order.</span>
-            <a href="" className="btn">Learn More</a>
-          </div>
-        </div>
-
-          <div className="carousel-item">
+          <div className="carousel-item active">
             <img src={banner1} alt="Los Angeles" className="d-block"/>
             <div className="carousel-caption text-start">
               <h3>Healthy Inside, Fresh Outside</h3>
