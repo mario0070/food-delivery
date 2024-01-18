@@ -181,6 +181,10 @@
     .landing .section3 .text{
         width: 100% !important;
     }
+
+    .landing .section3 img{
+        width: 100% !important;
+    }
     
 }
 
