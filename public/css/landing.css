@@ -26,6 +26,40 @@
     height: 600px;
 }
 
+.landing .section1 .offcanvas-header{
+    background-color: rgb(59, 180, 59);
+    color: white;
+    padding-bottom: 2em;
+    padding-top: 2em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.landing .section1 .offcanvas-body {
+    padding: 0 !important;
+}
+
+.landing .section1 .offcanvas-body p{
+    margin-bottom: 2em !important;
+    white-space: nowrap;
+    border-bottom: 1px solid rgb(231, 230, 230);
+    padding-bottom: 1em;
+}
+
+
+.landing .section1 .offcanvas-body a{
+    transition: .2s;
+    padding: 1em;
+    color: grey;
+    font-size: 14px;
+    padding-right: 100%;
+}
+
+.landing .section1 .offcanvas-body a:hover{
+    background-color: rgb(59, 180, 59);
+    color: white;
+    transition: .2s;
+}
+
 
 .landing .img{
     position: relative;
@@ -129,6 +163,16 @@
         padding: 1em;
     }
 
+    .landing .open_menu{
+        display: block !important;
+        font-size: 1.3em;
+        background-color: rgb(59, 180, 59);
+        color: white;
+        height: fit-content;
+        padding: .1em .5em;
+        border-radius: 3px;
+    }
+
     .landing .carousel-caption{
         left: 5% !important;
         right: 10% !important;
@@ -185,6 +229,10 @@
 
     .landing .section3 img{
         width: 100% !important;
+    }
+    
+    .landing .section1 .offcanvas{
+        width: 80%;
     }
     
 }
