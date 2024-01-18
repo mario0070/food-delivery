@@ -123,7 +123,7 @@ export default function LandingPage() {
       </div>
 
       <div className="section3 flex-wrap d-flex">
-        <div className="text mb-5">
+        <div className="text mb-3">
           <h2 className='mb-5'>Get Started Today!</h2>
           <h4 className="mb-3">Order free food delivery every day at your convenience.</h4>
           <p className="">From 8 to 10 in the morning. Delivery is free. Outside the city Shipping costs ₦2,000. Delivery days are Monday, Tuesday, Wednesday, Thursday, Friday, Saturday.</p>
