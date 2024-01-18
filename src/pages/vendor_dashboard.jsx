@@ -3,6 +3,16 @@ import "/public/css/vendor_dashboard.css"
 import banner3 from "/img/home-banner3.jpg"
 
 export default function VendorDashboard() {
+
+  const toggle = () => {
+    const topbar = document.querySelector(".topbar")
+    const sidebar = document.querySelector(".sidebar")
+    const main_content = document.querySelector(".main_content")
+    topbar.classList.toggle("active")
+    main_content.classList.toggle("active")
+    sidebar.classList.toggle("active")
+  }
+
   return (
     <div className='vendor_dashboard d-flex'>
       <div className="sidebar">
@@ -11,7 +21,7 @@ export default function VendorDashboard() {
       <div className="main_content">
         <div className="topbar d-flex">
             <div className="d-flex">
-              <p className="mb-0"><i class="fa-solid fa-bars"></i></p>
+              <p className="mb-0" onClick={toggle}><i class="fa-solid fa-bars"></i></p>
               <input type="text" className='mx-2' placeholder='search' />
             </div>
             <div className="d-flex mx-3">
@@ -24,18 +34,17 @@ export default function VendorDashboard() {
                   <p className="mb-0 dropdown-toggle text-muted text-capitalize">jamiu</p>
                 </div>
                 <ul class="dropdown-menu">
-                  <li><h5 class="dropdown-header">Dropdown header 1</h5></li>
-                  <li><a class="dropdown-item" href="#">Link 1</a></li>
-                  <li><a class="dropdown-item" href="#">Link 2</a></li>
-                  <li><a class="dropdown-item" href="#">Link 3</a></li>
-                  <li><h5 class="dropdown-header">Dropdown header 2</h5></li>
-                  <li><a class="dropdown-item" href="#">Another link</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="fa-regular mx-1 fa-user"></i> Profile</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="fa-solid mx-1 fa-gear"></i> Settings</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="fa-solid mx-1 fa-wallet"></i> Wallet</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="fa-solid mx-1 fa-bell"></i> Notifications</a></li>
+                  <li><a class="dropdown-item fw-bold text-danger" href="#"><i class="fa-solid mx-1 fa-arrow-right-from-bracket"></i> Log Out</a></li>
                 </ul>
               </div>
             </div>
         </div>
 
-        <div className="section1 mt-4">
+        <div className="section1">
           <h4 className='mb-3'>Dashboard</h4>
             <div className="d-flex">
                 <div className="left">
@@ -52,17 +61,37 @@ export default function VendorDashboard() {
                         <button>View Profile</button>
                       </div>
                     </div>
+                    <div className="content p-3">
+                      <h5 className='mb-4'>Monthly Earning</h5>
+                      <p className="text-muted">This month</p>
+                      <h4 className="mb-4">$34,252</h4>
+                      <p className="text-muted">From previous period</p>
+                      <button>View more</button>
+                    </div>
                 </div>
 
-                <div className="right d-flex">
-                    <div className="box">
-
-                    </div>
-                    <div className="box">
-                      
-                    </div>
-                    <div className="box">
-                      
+                <div className="right">
+                    <div className="d-flex">
+                      <div className="box">
+                          <p className="">Active Orders</p>
+                          <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
+                          <h4 className="">1,235</h4>
+                      </div>
+                      <div className="box">
+                          <p className="">Decline Orders</p>
+                          <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
+                          <h4 className="">1,235</h4>
+                      </div>
+                      <div className="box">
+                        <p className="">Total Orders</p>
+                          <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
+                        <h4 className="">1,235</h4>
+                      </div>
+                      <div className="box">
+                        <p className="">Revenue</p>
+                        <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
+                        <h4 className="">$4000</h4>
+                      </div>
                     </div>
                 </div>
             </div>
