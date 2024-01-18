@@ -35,7 +35,7 @@ export default function LandingPage() {
                 <p className="mb-0"><a href="/">Home</a></p>
                 <p className="mb-0"><a href="/login">Log In</a></p>
                 <p className="mb-0"><a href="/register">Sign Up</a></p>
-                <p className="mb-0"><a href="">Vendors</a></p>
+                <p className="mb-0"><a href="">Products</a></p>
                 <p className="mb-0"><a href="/about-us">About Us</a></p>
                 <p className="mb-0"><a href="">Join Our Agents</a></p>
                 <p className="mb-0"><a href="/vendor-dashboard">Vendor Dashboard</a></p>
@@ -53,7 +53,7 @@ export default function LandingPage() {
               <h3>Reliable Service Every Time</h3>
               <p>GET THE FASTEST PRODUCT DELIVERY</p>
               <span className='d-block'>Try Us And See How Good Our Services Are.</span>
-              <a href="" className="btn">Learn More</a>
+              <a href="/login" className="btn">Get Started</a>
             </div>
           </div>
         </div>
@@ -64,7 +64,7 @@ export default function LandingPage() {
             <h3>Choose Your Favorite</h3>
             <p className='text-uppercase'>Stay At Home We Will Deliver Your Order</p>
             <span className='d-block'>Do You Want A Fast Service? Just Call Us..</span>
-            <a href="" className="btn">Learn More</a>
+            <a href="/login" className="btn">Get Started</a>
           </div>
         </div>
       
@@ -75,7 +75,7 @@ export default function LandingPage() {
             <h3>Eat And Enjoy</h3>
             <p className='text-uppercase'>Order free food delivery every day at your convenience</p>
             <span className='d-block'>No shoping, no cooking, no counting and no cleaning. Enjoy your healthy meals with your family.</span>
-            <a href="" className="btn">Learn More</a>
+            <a href="/login" className="btn">Get Started</a>
           </div>
         </div>
         
@@ -91,7 +91,7 @@ export default function LandingPage() {
               <div className="p-4">
                 <h5 className="mb-0">Food And Drinks</h5>
                 <p className="mb-2 text-muted text-start fw-bold">Harmony Retails & Co.</p>
-                <p className="mb-0 text-start">Howdy Special, A well-seasoned, crispy fried chicken fillet slathered</p>
+                <p className="mb-0 text-start">Harmony sells all the kinds of healthy food you wish for, Howdy Special, crispy fried chicken fillet slathered...</p>
               </div>
             </div>
 
@@ -100,7 +100,7 @@ export default function LandingPage() {
               <div className="p-4">
                 <h5 className="mb-0">Foot Wears</h5>
                 <p className="mb-2 text-muted text-start fw-bold">Skoute & Emma Wear</p>
-                <p className="mb-0 text-start">Hot & Grilled nachos smothered in cheddar cheese, beef, black olives, onions </p>
+                <p className="mb-0 text-start">We sell different types of foot wear, eg Canvas, foot Palm, trainners and various nike shoes, for male and female..... </p>
               </div>
             </div>
 
@@ -109,7 +109,7 @@ export default function LandingPage() {
               <div className="p-4">
                 <h5 className="">Phones & Phone Gadget</h5>
                 <p className="mb-2 text-muted text-start fw-bold">Engr. Toyeeb </p>
-                <p className="mb-0 text-start">Double Breast Of A Chicken Burger With Spicy Red Sauce Try this new arrival</p>
+                <p className="mb-0 text-start">Best in dealing with brand new and used Phone, we have it in different models, Iphone, Android and also Laptop...</p>
               </div>
             </div>
            
@@ -118,7 +118,7 @@ export default function LandingPage() {
               <div className="p-4">
                 <h5 className="mb-0">Packages</h5>
                 <p className="mb-2 text-muted text-start fw-bold">Sweden Mornach Store</p>
-                <p className="mb-0 text-start">Special Burger, deep-fried beef ravioli served with marinara sauce and topped</p>
+                <p className="mb-0 text-start">Tell us and we will package it for you, Our store offers a simple solution for your packages... </p>
               </div>
             </div>
 
@@ -127,7 +127,7 @@ export default function LandingPage() {
               <div className="p-4">
                 <h5 className="mb-0">Fashion</h5>
                 <p className="mb-2 text-muted text-start fw-bold">Diamond Place Clothing</p>
-                <p className="mb-0 text-start">Potato skins, chicken strips, toasted ravioli and mozzarella sticks served </p>
+                <p className="mb-0 text-start">We sell both male and female cloth and trouser, huddies, joggers, baggy jean, jacket jean...</p>
               </div>
             </div>
            
@@ -137,7 +137,7 @@ export default function LandingPage() {
               <div className="p-4">
                 <h5 className="mb-0">Groceries</h5>
                 <p className="mb-2 text-muted text-start fw-bold">God Power Cheap Groceries</p>
-                <p className="mb-0 text-start">Blackened chicken, sauteed onions and peppers smothered with pepper jack</p>
+                <p className="mb-0 text-start">Blackened chicken, sauteed onions and peppers smothered with pepper jack...</p>
               </div>
             </div>
         </div>
@@ -152,6 +152,18 @@ export default function LandingPage() {
         </div>
         <div className="">
           <img src={agent} alt="" />
+        </div>
+      </div>
+
+      <div className="section3 section4 mt-4 flex-wrap d-flex">
+        <div className="">
+          <img src={delivery_man} alt="" />
+        </div>
+        <div className="text mb-3">
+          <h2 className='mb-3'>Become a Delivery Agent!</h2>
+          <h4 className="mb-3">Deliver and Earn</h4>
+          <p className="">Become a delivery agent and start earning on every successful delivery, We offer flexible and convenient part time work as delivery agent.</p>
+          <a href="/login" className="btn">Get Started</a>
         </div>
       </div>
 

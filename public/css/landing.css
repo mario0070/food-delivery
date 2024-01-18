@@ -20,11 +20,12 @@
 
 .landing .section1{
     position: absolute;
-    z-index: 100;
+    z-index: 10;
     width: 100%;
-    background-color: rgba(16, 16, 16, 0.171);
+    background-color: rgba(218, 216, 216, 0.171);
     height: 600px;
 }
+
 
 .landing .img{
     position: relative;
@@ -215,6 +216,12 @@
 
 .landing .section3 img{
     width: 400px;
+    height: 500px;
+    object-fit: contain;
+}
+
+.landing .section4 img{
+    width: 500px;
     height: 500px;
     object-fit: contain;
 }
