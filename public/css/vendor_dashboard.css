@@ -12,8 +12,56 @@
     width: 20%;
     height: 100vh;
     padding: 1em;
+    padding-top: 0em;
     transition: .2s;
     position: fixed;
+    overflow: scroll;
+}
+
+.vendor_dashboard .sidebar h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: fixed;
+    background-color: var(--primary);
+    width: 20%;
+}
+
+.vendor_dashboard .sidebar h2 a{
+    color: white;
+    text-decoration: none;
+}
+
+.vendor_dashboard .sidebar .links{
+    padding-top: 4em;
+    overflow: scroll;
+}
+
+.vendor_dashboard .sidebar .links p {
+    color: var(--secondary);
+    width: 100%;
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.vendor_dashboard .sidebar .links .active{
+    background-color: rgb(233, 232, 232);
+    color: var(--primary);
+    padding: .5em;
+    padding-right: 8em;
+    text-align: start;
+}
+
+.vendor_dashboard .sidebar .links p a:hover{
+    transition: .2s;
+    color: rgb(255, 255, 255);
+}
+
+.vendor_dashboard .sidebar .links p a{
+    color: rgb(205, 204, 204);
+    text-decoration: none;
+    transition: .2s;
+    width: max-content;
+    white-space: nowrap;
+    padding-right: 8em;
 }
 
 .vendor_dashboard .sidebar.active{
