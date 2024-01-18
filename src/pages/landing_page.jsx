@@ -3,10 +3,19 @@ import "/public/css/landing.css"
 import banner1 from "/img/home-banner1.jpg"
 import banner2 from "/img/home-banner2.jpg"
 import banner3 from "/img/home-banner3.jpg"
+import fashion1 from "/img/fashion.webp"
+import fashion2 from "/img/fashion1.webp"
+import Foot1 from "/img/Foot Wears1.webp"
+import Foot2 from "/img/Foot Wears2.jpg"
+import Packages from "/img/Packages.jpg"
+import phone1 from "/img/phone1.jpeg"
+import Groceries2 from "/img/Groceries2.jpeg"
 import img1 from "/img/img1.png"
 import img2 from "/img/img2.png"
 import img3 from "/img/img3.png"
 import img4 from "/img/img4.png"
+import agent from "/img/agent.png"
+import delivery_man from "/img/delivery_man.png"
 import img5 from "/img/img5.jpeg"
 import img6 from "/img/img6.jpg"
 import pizza from "/img/pizza.jpg"
@@ -29,8 +38,8 @@ export default function LandingPage() {
                 <p className="mb-0"><a href="">Vendors</a></p>
                 <p className="mb-0"><a href="/about-us">About Us</a></p>
                 <p className="mb-0"><a href="">Join Our Agents</a></p>
-                {/* <p className="mb-0"><a href="/vendor-dashboard">Vendor Dashboard</a></p>
-                <p className="mb-0"><a href="/agent-dashboard">Agent Dashboard</a></p>
+                <p className="mb-0"><a href="/vendor-dashboard">Vendor Dashboard</a></p>
+                {/* <p className="mb-0"><a href="/agent-dashboard">Agent Dashboard</a></p>
                 <p className="mb-0"><a href="/user-dashboard">User Dashboard</a></p> */}
               </div>
           </div>
@@ -41,9 +50,9 @@ export default function LandingPage() {
           <div className="carousel-item active">
             <img src={banner1} alt="Los Angeles" className="d-block"/>
             <div className="carousel-caption text-start">
-              <h3>Healthy Inside, Fresh Outside</h3>
-              <p>Healthy foods comes from healthy ingredients</p>
-              <span className='d-block'>We deliver the food that are ready to eat, just choose our own menu you like</span>
+              <h3>Reliable Service Every Time</h3>
+              <p>GET THE FASTEST PRODUCT DELIVERY</p>
+              <span className='d-block'>Try Us And See How Good Our Services Are.</span>
               <a href="" className="btn">Learn More</a>
             </div>
           </div>
@@ -53,8 +62,8 @@ export default function LandingPage() {
           <img src={banner2} alt="Los Angeles" className="d-block"/>
           <div className="carousel-caption text-start">
             <h3>Choose Your Favorite</h3>
-            <p>Only natural food</p>
-            <span className='d-block'>Choose your favorite meals and order online or by phone. It's easy to customize your order.</span>
+            <p className='text-uppercase'>Stay At Home We Will Deliver Your Order</p>
+            <span className='d-block'>Do You Want A Fast Service? Just Call Us..</span>
             <a href="" className="btn">Learn More</a>
           </div>
         </div>
@@ -64,7 +73,7 @@ export default function LandingPage() {
           <img src={banner3} alt="Los Angeles" className="d-block"/>
           <div className="carousel-caption text-start">
             <h3>Eat And Enjoy</h3>
-            <p>Order free food delivery every day at your convenience</p>
+            <p className='text-uppercase'>Order free food delivery every day at your convenience</p>
             <span className='d-block'>No shoping, no cooking, no counting and no cleaning. Enjoy your healthy meals with your family.</span>
             <a href="" className="btn">Learn More</a>
           </div>
@@ -73,50 +82,62 @@ export default function LandingPage() {
       </div>
 
       <div className="section2 mt-5">
-        <p className="text-center top mb-1">SUPER DELICIOUS</p>
-        <h2 className='text-center'>Super Delicious Deal</h2>
+        <p className="text-center top mb-1">Place Your Order Now.</p>
+        <h2 className='text-center'>We Deliver Everything</h2>
 
         <div className="d-flex flex-wrap">
             <div className="content">
               <img src={img1} alt="" />
               <div className="p-4">
-                <h5 className="">Crispy Fry Burger</h5>
+                <h5 className="mb-0">Food And Drinks</h5>
+                <p className="mb-2 text-muted text-start fw-bold">Harmony Retails & Co.</p>
                 <p className="mb-0 text-start">Howdy Special, A well-seasoned, crispy fried chicken fillet slathered</p>
               </div>
             </div>
+
             <div className="content">
-              <img src={img2} alt="" />
+              <img src={Foot2} alt="" />
               <div className="p-4">
-                <h5 className="">Fandango Burger</h5>
-                <p className="mb-0 text-start">Potato skins, chicken strips, toasted ravioli and mozzarella sticks served </p>
-              </div>
-            </div>
-            <div className="content">
-              <img src={img3} alt="" />
-              <div className="p-4">
-                <h5 className="">Wrangler Burger</h5>
-                <p className="mb-0 text-start">Blackened chicken, sauteed onions and peppers smothered with pepper jack</p>
-              </div>
-            </div>
-            <div className="content">
-              <img src={img4} alt="" />
-              <div className="p-4">
-                <h5 className="">Double Cheese Burger</h5>
-                <p className="mb-0 text-start">Special Burger, deep-fried beef ravioli served with marinara sauce and topped</p>
-              </div>
-            </div>
-            <div className="content">
-              <img src={img5} alt="" />
-              <div className="p-4">
-                <h5 className="">Grilled salmon</h5>
+                <h5 className="mb-0">Foot Wears</h5>
+                <p className="mb-2 text-muted text-start fw-bold">Skoute & Emma Wear</p>
                 <p className="mb-0 text-start">Hot & Grilled nachos smothered in cheddar cheese, beef, black olives, onions </p>
               </div>
             </div>
+
             <div className="content">
-              <img src={img6} alt="" />
+              <img src={phone1} alt="" />
               <div className="p-4">
-                <h5 className="">Rice noodles with Vegetables</h5>
+                <h5 className="">Phones & Phone Gadget</h5>
+                <p className="mb-2 text-muted text-start fw-bold">Engr. Toyeeb </p>
                 <p className="mb-0 text-start">Double Breast Of A Chicken Burger With Spicy Red Sauce Try this new arrival</p>
+              </div>
+            </div>
+           
+            <div className="content">
+              <img src={Packages} alt="" />
+              <div className="p-4">
+                <h5 className="mb-0">Packages</h5>
+                <p className="mb-2 text-muted text-start fw-bold">Sweden Mornach Store</p>
+                <p className="mb-0 text-start">Special Burger, deep-fried beef ravioli served with marinara sauce and topped</p>
+              </div>
+            </div>
+
+            <div className="content">
+              <img src={fashion2} alt="" />
+              <div className="p-4">
+                <h5 className="mb-0">Fashion</h5>
+                <p className="mb-2 text-muted text-start fw-bold">Diamond Place Clothing</p>
+                <p className="mb-0 text-start">Potato skins, chicken strips, toasted ravioli and mozzarella sticks served </p>
+              </div>
+            </div>
+           
+
+            <div className="content">
+              <img src={Groceries2} alt="" />
+              <div className="p-4">
+                <h5 className="mb-0">Groceries</h5>
+                <p className="mb-2 text-muted text-start fw-bold">God Power Cheap Groceries</p>
+                <p className="mb-0 text-start">Blackened chicken, sauteed onions and peppers smothered with pepper jack</p>
               </div>
             </div>
         </div>
@@ -125,12 +146,12 @@ export default function LandingPage() {
       <div className="section3 flex-wrap d-flex">
         <div className="text mb-3">
           <h2 className='mb-5'>Get Started Today!</h2>
-          <h4 className="mb-3">Order free food delivery every day at your convenience.</h4>
+          <h4 className="mb-3">Stay At Home We Will Deliver Your Order</h4>
           <p className="">From 8 to 10 in the morning. Delivery is free. Outside the city Shipping costs ₦2,000. Delivery days are Monday, Tuesday, Wednesday, Thursday, Friday, Saturday.</p>
           <a href="" className="btn">View Products</a>
         </div>
         <div className="">
-          <img src={pizza} alt="" />
+          <img src={agent} alt="" />
         </div>
       </div>
 
