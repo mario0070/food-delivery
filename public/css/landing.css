@@ -214,10 +214,9 @@
 }
 
 .landing .section3 img{
-    width: 600px;
+    width: 400px;
     height: 500px;
     object-fit: contain;
-    border-radius: 50%;
 }
 
 .landing .section3 a{

@@ -107,7 +107,7 @@
     padding-bottom: .5em;
     width: 400px;
     outline: none;
-    background-color: #2a3042;
+    background-color: var(--primary);
     color: white;
 }
 
