@@ -22,7 +22,7 @@
     position: absolute;
     z-index: 100;
     width: 100%;
-    background-color: rgba(16, 16, 16, 0.171);
+    /* background-color: rgba(16, 16, 16, 0.171); */
     height: 600px;
 }
 
