@@ -14,7 +14,7 @@ export default function Footer() {
 
         <div className="content">
           <ul>
-            <li><h5>Our service</h5></li>
+            <li><h5 className='text-white'>Our service</h5></li>
             <li><a href="">Terms</a></li>
             <li><a href="">Privacy Policy</a></li>
             <li><a href="">About Us</a></li>
@@ -25,7 +25,7 @@ export default function Footer() {
         
         <div className="content">
           <ul>
-            <li><h5>Contact</h5></li>
+            <li><h5 className='text-white'>Contact</h5></li>
             <p className="mb-2">
               <strong>Email: </strong>
             </p>
@@ -37,7 +37,7 @@ export default function Footer() {
 
         <div className="content">
           <ul>
-            <li><h5>Explore</h5></li>
+            <li><h5 className='text-white'>Explore</h5></li>
             <li><a href="">How it works</a></li>
             <li><a href="">Press Page</a></li>
             <li><a href="">Consultation</a></li>
@@ -46,7 +46,7 @@ export default function Footer() {
 
         <div className="content">
           <ul>
-            <li><h5>Latest News</h5></li>
+            <li><h5 className='text-white'>Latest News</h5></li>
             <li><a href="">Grilled Chicken & Kabab With Tomato Sauce</a></li>
           </ul>
         </div>

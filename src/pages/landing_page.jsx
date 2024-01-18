@@ -31,6 +31,27 @@ export default function LandingPage() {
                 <h2 className='text-uppercase text-dark'><a href="/">swift</a></h2>
                 <img className='logo mx-2' src={logo} alt="" />
               </div>
+              <p data-bs-toggle="offcanvas" data-bs-target="#demo" className="mb-0 btn d-none open_menu"><i class="fa-solid fa-bars"></i></p>
+
+              <div class="offcanvas offcanvas-start" id="demo">
+                <div class="offcanvas-header">
+                  <h2 class="offcanvas-title">Swift</h2>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <p className="mb-0 mt-4"><a href="/"><i class="fa-solid fa-house"></i> Home</a></p>
+                  <p className="mb-0"><a href=""><i class="fa-brands fa-product-hunt"></i> Products</a></p>
+                  <p className="mb-0"><a href="/about-us"><i class="fa-regular fa-address-card"></i> About Us</a></p>
+                  <p className="mb-0"><a href="/login"><i class="fa-solid fa-user-tie"></i> Join Our Agents</a></p>
+                  <p className="mb-0"><a href="/login"><i class="fa-solid fa-arrow-right"></i> Log In</a></p>
+                  <p className="mb-0"><a href="/register"><i class="fa-solid fa-arrow-right"></i> Sign Up</a></p>
+                  <p className="mb-0"><a href="/vendor-dashboard"><i class="fa-brands fa-red-river"></i> Vendor Dashboard</a></p>
+                  <p className="mb-0"><a href="/agent-dashboard"><i class="fa-solid fa-user-tie"></i> Agent Dashboard</a></p>
+                  <p className="mb-0"><a href="/user-dashboard"><i class="fa-solid fa-user"></i> User Dashboard</a></p>
+                  {/* <button class="btn btn-secondary" type="button">A Button</button> */}
+                </div>
+              </div>
+
               <div className="d-flex links">
                 <p className="mb-0"><a href="/">Home</a></p>
                 <p className="mb-0"><a href="/login">Log In</a></p>
