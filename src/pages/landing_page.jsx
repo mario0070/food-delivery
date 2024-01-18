@@ -29,9 +29,9 @@ export default function LandingPage() {
                 <p className="mb-0"><a href="">Vendors</a></p>
                 <p className="mb-0"><a href="/about-us">About Us</a></p>
                 <p className="mb-0"><a href="">Join Our Agents</a></p>
-                {/* <p className="mb-0"><a href="/vendor-dashboard">Vendor Dashboard</a></p>
+                <p className="mb-0"><a href="/vendor-dashboard">Vendor Dashboard</a></p>
                 <p className="mb-0"><a href="/agent-dashboard">Agent Dashboard</a></p>
-                <p className="mb-0"><a href="/user-dashboard">User Dashboard</a></p> */}
+                <p className="mb-0"><a href="/user-dashboard">User Dashboard</a></p>
               </div>
           </div>
       </div>
