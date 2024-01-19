@@ -1,6 +1,8 @@
 import React from 'react'
 import "/public/css/vendor_dashboard.css"
 import banner3 from "/img/home-banner3.jpg"
+import Sidebar from '../components/sideBar'
+import Topbar from '../components/topbar'
 
 export default function VendorDashboard() {
 
@@ -15,46 +17,10 @@ export default function VendorDashboard() {
 
   return (
     <div className='vendor_dashboard d-flex'>
-      <div className="sidebar">
-          <div className="top">
-            <h2 className='p-2 mb-4 text-white'><a href="/">Swift</a></h2>
-            <div className="links">
-              <p className=""><a href="" className='active'><i class="fa-solid fa-house"></i> Dashboard</a></p>
-              <p className=""><a href=""><i class="fa-solid fa-comments"></i> Chat</a></p>
-              <p className=""><a href=""><i class="fa-brands fa-product-hunt"></i> Products</a></p>
-              <p className=""><a href=""><i class="fa-solid fa-chart-simple"></i> Analytic</a></p>
-              <p className=""><a href=""><i class="fa-brands fa-first-order-alt"></i> All Orders</a></p>
-              <p className=""><a href=""><i class="fa-solid fa-user"></i> Profile</a></p>
-              <p className=""><a href=""><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a></p>
-            </div>
-          </div>
-      </div>
+      <Sidebar/>
 
       <div className="main_content">
-        <div className="topbar d-flex">
-            <div className="d-flex">
-              <p className="mb-0" onClick={toggle}><i class="fa-solid fa-bars"></i></p>
-              <input type="text" className='mx-2' placeholder='search' />
-            </div>
-            <div className="d-flex mx-3">
-              <p className="mx-2 mb-0"><i class="fa-solid fa-bell"></i></p>
-              <p className="mx-2 mb-0"><i class="fa-solid fa-gear"></i></p>
-
-              <div class="dropdown mx-2">
-                <div className="d-flex" data-bs-toggle="dropdown">
-                  <img src={banner3} alt="img"/>
-                  <p className="mb-0 dropdown-toggle text-muted text-capitalize">jamiu</p>
-                </div>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#"><i class="fa-regular mx-1 fa-user"></i> Profile</a></li>
-                  <li><a class="dropdown-item" href="#"><i class="fa-solid mx-1 fa-gear"></i> Settings</a></li>
-                  <li><a class="dropdown-item" href="#"><i class="fa-solid mx-1 fa-wallet"></i> Wallet</a></li>
-                  <li><a class="dropdown-item" href="#"><i class="fa-solid mx-1 fa-bell"></i> Notifications</a></li>
-                  <li><a class="dropdown-item fw-bold text-danger" href="#"><i class="fa-solid mx-1 fa-arrow-right-from-bracket"></i> Log Out</a></li>
-                </ul>
-              </div>
-            </div>
-        </div>
+       <Topbar toggle={toggle}/>
 
         <div className="section1">
           <h4 className='mb-3'>Dashboard</h4>
@@ -73,8 +39,8 @@ export default function VendorDashboard() {
                         <button>View Profile</button>
                       </div>
                     </div>
-                    <div className="content p-3">
-                      <h5 className='mb-4'>Monthly Earning</h5>
+                    <div className="content content2 p-3">
+                      <h6 className='mb-4 fw-bold text-dark'>Monthly Earning</h6>
                       <p className="text-muted">This month</p>
                       <h4 className="mb-4">$34,252</h4>
                       <p className="text-muted">From previous period</p>
@@ -108,6 +74,60 @@ export default function VendorDashboard() {
                 </div>
             </div>
         </div>
+
+        <div className="section2 d-flex">
+          <div className="box top_product">
+              <i class="fa-solid fa-arrow-up"></i>
+              <h6 className='fw-bold mb-2'>Top Selling product</h6>
+              <h6 className="text-center mt-4 text-muted">Shoes</h6>
+              <h4 className="text-center fw-bold mny">$600</h4>
+              <p className="text-center mb-4">From previous period</p>
+
+              <div className="d-flex">
+                <div className="">
+                  <h6 className="text-muted mb-1">Shoes</h6>
+                  <p className="mb-0">Foot wear</p>
+                </div>
+                <div className="">
+                  <p className="mb-0 text-muted">Sales</p>
+                  <p className="mb-0 text-dark fs-5 mny">98%</p>
+                </div>
+              </div>
+
+              <div className="d-flex">
+                <div className="">
+                  <h6 className="text-muted mb-1">Shoes</h6>
+                  <p className="mb-0">Foot wear</p>
+                </div>
+                <div className="">
+                  <p className="mb-0 text-muted">Sales</p>
+                  <p className="mb-0 text-dark fs-5 mny">98%</p>
+                </div>
+              </div>
+
+              <div className="d-flex">
+                <div className="">
+                  <h6 className="text-muted mb-1">Shoes</h6>
+                  <p className="mb-0">Foot wear</p>
+                </div>
+                <div className="">
+                  <p className="mb-0 text-muted">Sales</p>
+                  <p className="mb-0 text-dark fs-5 mny">98%</p>
+                </div>
+              </div>
+          </div>
+          
+          <div className="box">
+            <h6 className="fw-bold mb-2">Latest Transaction</h6>
+            
+          </div>
+          
+          <div className="box">
+            <h6 className="fw-bold mb-2">Notifications</h6>
+            
+          </div>
+        </div>
+
       </div>
     </div>
   )

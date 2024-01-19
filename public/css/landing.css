@@ -343,7 +343,7 @@
 
 .footer{
     background-color: rgb(59, 180, 59);
-    padding: 4em;
+    padding: 2em;
     margin-top: 3em;
 }
 
@@ -375,8 +375,4 @@
 
 .footer h5{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.footer .content{
-    margin-bottom: 2em;
 }
