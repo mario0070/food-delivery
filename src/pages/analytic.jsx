@@ -19,7 +19,25 @@ export default function Analytics() {
             <Sidebar role={role}/>
 
             <div className="main_content">
-            <Topbar toggle={toggle}/>
+                <Topbar toggle={toggle}/>
+
+                <div className="special analytic">
+                    <div className="box">
+                        <div className="d-flex">
+                            <p className="mb-0"><i class="fa-brands fa-product-hunt"></i> Product</p>
+                            <p className="mb-0"><i class="fa-solid fa-hand-holding-dollar"></i> Price</p>
+                            <p className="mb-0"><i class="fa-solid fa-calendar-days"></i> 2024</p>
+                        </div>
+                    </div>
+
+                    <div className="box">
+                        <div className="d-flex">
+                            <p className="mb-0"><i class="fa-brands fa-product-hunt"></i> Product</p>
+                            <p className="mb-0"><i class="fa-solid fa-clipboard"></i> Quantity</p>
+                            <p className="mb-0"><i class="fa-solid fa-calendar-days"></i> 2024</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
