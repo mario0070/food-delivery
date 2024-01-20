@@ -294,7 +294,7 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
-.vendor_dashboard .section2 .top_product .mny{
+.vendor_dashboard .section2 .mny{
     color: rgb(8, 180, 8) !important;
 }
 
@@ -314,4 +314,37 @@
     border-top: 1px solid rgb(232, 232, 232);
     padding-top: .7em;
     margin-bottom: .5em;
+}
+
+.vendor_dashboard .section2 .table_set{
+    overflow: scroll;
+}
+
+.vendor_dashboard .section2 .table{
+    font-size: 14px !important;
+    white-space: nowrap;
+    border: 1px solid rgb(220, 218, 218);
+}
+
+.vendor_dashboard .section2 .table th{
+    color: white;
+    background-color: var(--primary);
+    text-align: center;
+}
+
+.vendor_dashboard .section2 .table td{
+    color: grey;
+    text-align: center;
+}
+
+.vendor_dashboard .section2 .notification p{
+    font-size: 14px;
+    color: grey;
+    text-align: center;
+}
+
+.vendor_dashboard .section2 .notification h4{
+    color: grey;
+    text-align: center;
+    margin-top: 4em;
 }

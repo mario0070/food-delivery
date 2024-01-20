@@ -42,7 +42,7 @@ export default function VendorDashboard() {
                     <div className="content content2 p-3">
                       <h6 className='mb-4 fw-bold text-dark'>Monthly Earning</h6>
                       <p className="text-muted">This month</p>
-                      <h4 className="mb-4">$34,252</h4>
+                      <h4 className="mb-4">₦34,252</h4>
                       <p className="text-muted">From previous period</p>
                       <button>View more</button>
                     </div>
@@ -68,7 +68,7 @@ export default function VendorDashboard() {
                       <div className="box">
                         <p className="">Revenue</p>
                         <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
-                        <h4 className="">$4000</h4>
+                        <h4 className="">₦4000</h4>
                       </div>
                     </div>
                 </div>
@@ -77,10 +77,10 @@ export default function VendorDashboard() {
 
         <div className="section2 d-flex">
           <div className="box top_product">
-              <i class="fa-solid fa-arrow-up"></i>
+              <i class="fa-brands fa-product-hunt"></i>
               <h6 className='fw-bold mb-2'>Top Selling product</h6>
               <h6 className="text-center mt-4 text-muted">Shoes</h6>
-              <h4 className="text-center fw-bold mny">$600</h4>
+              <h4 className="text-center fw-bold mny">₦600</h4>
               <p className="text-center mb-4">From previous period</p>
 
               <div className="d-flex">
@@ -117,14 +117,63 @@ export default function VendorDashboard() {
               </div>
           </div>
           
-          <div className="box">
+          <div className="box table_set">
+            <i class="fa-brands fa-first-order-alt"></i>
             <h6 className="fw-bold mb-2">Latest Transaction</h6>
-            
+            <table class="table mt-4">
+              <thead>
+                <tr>
+                  <th>#ID</th>
+                  <th>Total</th>
+                  <th>Payment Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#SK2540</td>
+                  <td>₦400</td>
+                  <td className='status fw-bold mny'>Paid</td>
+                </tr>
+                <tr>
+                  <td>#SK2540</td>
+                  <td>₦400</td>
+                  <td className='status fw-bold mny'>Paid</td>
+                </tr>
+                <tr>
+                  <td>#SK2540</td>
+                  <td>₦400</td>
+                  <td className='status fw-bold mny'>Paid</td>
+                </tr>
+                <tr>
+                  <td>#SK2540</td>
+                  <td>₦400</td>
+                  <td className='status fw-bold mny'>Paid</td>
+                </tr>
+                <tr>
+                  <td>#SK2540</td>
+                  <td>₦400</td>
+                  <td className='status fw-bold mny'>Paid</td>
+                </tr>
+                <tr>
+                  <td>#SK2540</td>
+                  <td>₦400</td>
+                  <td className='status fw-bold mny'>Paid</td>
+                </tr>
+                <tr>
+                  <td>#SK2540</td>
+                  <td>₦400</td>
+                  <td className='status fw-bold mny'>Paid</td>
+                </tr>
+                
+              </tbody>
+            </table>
           </div>
           
-          <div className="box">
+          <div className="box notification">
+            <i class="fa-solid fa-bell"></i>
             <h6 className="fw-bold mb-2">Notifications</h6>
-            
+            <h4 className="">No Notifications!!</h4>
+            <p className="">You do not have any notifications.</p>
           </div>
         </div>
 
