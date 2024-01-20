@@ -13,6 +13,27 @@ export default function Sidebar({role}) {
     })
   })
 
+  const logOut = (e) => {
+    e.preventDefault()
+    Swal.fire({
+        title: "Log Out?",
+        text: "Your account will be log out!!",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#2a3042",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, log out!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Logged out!",
+            text: "Account is log out successfully.",
+            icon: "success"
+          });
+        }
+    });
+  }
+
 
   return (
     <div className="sidebar">
@@ -25,7 +46,7 @@ export default function Sidebar({role}) {
             <p className=""><Link className='side_link' to="/analytic"><i class="fa-solid fa-chart-simple"></i> Analytic</Link></p>
             <p className=""><Link className='side_link' to="/orders"><i class="fa-brands fa-first-order-alt"></i> Orders</Link></p>
             <p className=""><Link className='side_link' to="/profile"><i class="fa-solid fa-user"></i> Profile</Link></p>
-            <p className=""><a className='side_link' href=""><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a></p>
+            <p className="" onClick={logOut}><a className='side_link' href=""><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a></p>
         </div>
         </div>
     </div>
