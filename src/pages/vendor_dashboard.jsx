@@ -71,6 +71,9 @@ export default function VendorDashboard() {
                         <h4 className="">₦4000</h4>
                       </div>
                     </div>
+                    <div className="chart">
+                      
+                    </div>
                 </div>
             </div>
         </div>

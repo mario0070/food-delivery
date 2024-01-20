@@ -261,6 +261,14 @@
     text-align: center;
 }
 
+.vendor_dashboard .section1 .chart{
+    box-shadow: .1em .1em 1em rgba(0, 0, 0, 0.189);
+    padding: 1em;
+    margin-top: 2em;
+    height: 495px;
+    border-radius: 6px;
+}
+
 .vendor_dashboard .section1 .float-right{
     float: right;
     transform: translateY(100px);
