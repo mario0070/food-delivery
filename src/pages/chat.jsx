@@ -85,9 +85,22 @@ export default function Chat() {
               </div>
 
             </div>
-            
-            <div className="chat_box">
 
+            <div className="chat_box">
+                <div className="head d-flex">
+                  <div className="">
+                    <p className="fw-bold mb-0">Ganiu Jamiu</p>
+                    <div className="d-flex">
+                      <p className="dot mb-0"></p>
+                      <p className="mb-0">Active Now</p>
+                    </div>
+                  </div>
+                  <div className="d-flex">
+                    <i class="fa-solid fa-bell"></i>
+                    <i class="fa-solid fa-bell"></i>
+                    <i class="fa-solid fa-bell"></i>
+                  </div>
+                </div>
             </div>
         </div>
 
