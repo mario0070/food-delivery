@@ -19,7 +19,16 @@ export default function allOrders() {
             <Sidebar role={role}/>
 
             <div className="main_content">
-            <Topbar toggle={toggle}/>
+                <Topbar toggle={toggle}/>
+
+                <div className="special orders">
+                    <div className="top nav-tabs d-flex" role="tablist">
+                        <p data-bs-toggle="tab" className="mb-0 nav-link active">Active Orders (0)</p>
+                        <p data-bs-toggle="tab" className="mb-0 nav-link ">Fulfilled Orders (0)</p>
+                        <p data-bs-toggle="tab" className="mb-0 nav-link ">Closed Orders (0)</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     )
