@@ -8,6 +8,7 @@ import About from '../pages/about'
 import VendorDashboard from '../pages/vendor_dashboard'
 import UserDashboard from '../pages/user_dashboard'
 import AgentDashboard from '../pages/agent_dashboard'
+import Chat from '../pages/chat'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route element={<AgentDashboard/>} path='/agent-dashboard'/>
           <Route element={<Contact/>} path='/contact-us'/>
           <Route element={<About/>} path='/about-us'/>
+          <Route element={<Chat/>} path='/chat'/>
         </Routes>
     </>
   )

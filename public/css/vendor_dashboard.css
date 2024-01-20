@@ -136,7 +136,7 @@
     width: 30px;
     height: 30px;
     object-fit: cover;
-    filter: drop-shadow(.1em .1em .1em black);
+    filter: drop-shadow(.1em .1em .1em rgb(101, 101, 101));
     border-radius: 50%;
     margin-right: .5em;
 }
