@@ -23,7 +23,7 @@ export default function Products() {
             <div className="main_content">
                 <Topbar toggle={toggle}/>
 
-                <div className="products d-flex">
+                <div className="products special d-flex">
                     <div className="box">
 
                     </div>

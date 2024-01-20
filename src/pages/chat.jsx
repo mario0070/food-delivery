@@ -62,7 +62,7 @@ export default function Chat() {
       <div className="main_content">
         <Topbar toggle={toggle}/>
         
-        <div className="chat d-flex">
+        <div className="chat special d-flex">
             <div className="all_chats">
               <h4 className='fw-bold'>Chat</h4>
               <div className="user mt-5 d-flex">
