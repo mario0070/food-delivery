@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Sidebar from '../components/sideBar'
+import Sidebar from '../components/side_bar'
 import Topbar from '../components/topbar'
 import "/public/css/product.css"
 import banner3 from "/img/home-banner3.jpg"

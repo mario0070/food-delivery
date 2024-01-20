@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Sidebar from '../components/sideBar'
+import Sidebar from '../components/side_bar'
 import Topbar from '../components/topbar'
 
 export default function allOrders() {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-// import Sidebar from '../components/sideBar'
+import Sidebar from '../components/side_bar'
 import Topbar from '../components/topbar'
 
 export default function Profile() {
@@ -16,7 +16,7 @@ export default function Profile() {
 
     return (
         <div className='vendor_dashboard'>
-            {/* <Sidebar role={role}/> */}
+            <Sidebar role={role}/>
 
             <div className="main_content">
             <Topbar toggle={toggle}/>

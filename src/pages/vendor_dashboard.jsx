@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "/public/css/vendor_dashboard.css"
 import banner3 from "/img/home-banner3.jpg"
-import Sidebar from '../components/sideBar'
+import Sidebar from '../components/side_bar'
 import Topbar from '../components/topbar'
 
 export default function VendorDashboard() {
