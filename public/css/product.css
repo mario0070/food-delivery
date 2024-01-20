@@ -99,3 +99,28 @@
     background-color: #2a304274;
     color: black;
 }
+
+.pagination{
+    background-color: var(--primary);
+    position: fixed;
+    bottom: 0;
+    padding: .4em;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    font-size: 14px;
+    /* right: 0; */
+}
+
+.pagination .fa-solid{
+    background-color: var(--secondary);
+    color: var(--primary);
+    padding: .3em;
+    border-radius: 3px;
+}
+
+.pagination .total{
+    color: var(--secondary);
+    border:1px solid var(--secondary);
+    /* padding: .3em; */
+    border-radius: 3px;
+}

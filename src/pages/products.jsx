@@ -77,8 +77,14 @@ export default function Products() {
 
             <div className="main_content">
                 <Topbar toggle={toggle}/>
+                
 
                 <div className="products special d-flex">
+                    <div className="pagination">
+                        <p className="mb-0 btn"><i className='fa-solid fa-angles-left'></i></p>
+                        <p className="mb-0 btn total">1 out of 1 page</p>
+                        <p className="mb-0 btn"><i className='fa-solid fa-angles-right'></i></p>
+                    </div>
                     <div className="box add text-center">
                        <p className="text-muted btn" onClick={showForm}><i class="fa-solid fa-plus"></i></p>
                        <p className="p">Add Product</p>
@@ -131,10 +137,6 @@ export default function Products() {
                         </div>
                     </div>
                    
-                </div>
-
-                <div className="section3 mt-4">
-                    <p className="text-center text-white">© Copyright 2016, All rights reserved</p>
                 </div>
             </div>
         </div>
