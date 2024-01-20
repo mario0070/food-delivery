@@ -90,6 +90,19 @@
     background-color: var(--secondary);
 }
 
+.vendor_dashboard .special{
+    animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 100;
+    }
+}
+
 .vendor_dashboard .topbar{
     box-shadow: .1em .1em 1em rgba(0, 0, 0, 0.151);
     padding: 1em;

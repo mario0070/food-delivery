@@ -23,7 +23,7 @@ export default function VendorDashboard() {
       <div className="main_content">
        <Topbar toggle={toggle}/>
 
-        <div className="section1">
+        <div className="section1 special">
           <h4 className='mb-3'>Dashboard</h4>
             <div className="d-flex">
                 <div className="left">
