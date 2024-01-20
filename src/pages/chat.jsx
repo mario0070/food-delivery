@@ -101,6 +101,96 @@ export default function Chat() {
                     <i class="fa-solid fa-bell"></i>
                   </div>
                 </div>
+
+                <div className="msg-container" id='msgBody'>
+
+                  <div className="wrap1 pt-4">
+                    <div className="">
+                        <p className='mb-0 mx-3'><i className="fa-brands fa-bots"></i></p>
+                        <div className="msgBodys mt-0">
+                            <p className='mb-0 p-2'>Hello jamiu, what questions do you have for me today? </p>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="wrap2 mt -2">
+                    <p className='mb-0 text-end mx-3 msgIcon'><i className="fa-brands fa-bots"></i></p>
+                    <div class="sentMsg mt-0">
+                      <div class="myMsg">
+                          <p class="mb-0 p-2">Hello jamiu, what questions do you have for me today? </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="wrap1 pt-4">
+                    <div className="">
+                        <p className='mb-0 mx-3'><i className="fa-brands fa-bots"></i></p>
+                        <div className="msgBodys mt-0">
+                            <p className='mb-0 p-2'>Hello jamiu, what questions do you have for me today? </p>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="wrap2 mt -2">
+                    <p className='mb-0 text-end mx-3 msgIcon'><i className="fa-brands fa-bots"></i></p>
+                    <div class="sentMsg mt-0">
+                      <div class="myMsg">
+                          <p class="mb-0 p-2">Hello jamiu, what questions do you have for me today? </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="wrap1 pt-4">
+                    <div className="">
+                        <p className='mb-0 mx-3'><i className="fa-brands fa-bots"></i></p>
+                        <div className="msgBodys mt-0">
+                            <p className='mb-0 p-2'>Hello jamiu, what questions do you have for me today? </p>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="wrap2 mt -2">
+                    <p className='mb-0 text-end mx-3 msgIcon'><i className="fa-brands fa-bots"></i></p>
+                    <div class="sentMsg mt-0">
+                      <div class="myMsg">
+                          <p class="mb-0 p-2">Hello jamiu, what questions do you have for me today? </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="wrap1 pt-4">
+                    <div className="">
+                        <p className='mb-0 mx-3'><i className="fa-brands fa-bots"></i></p>
+                        <div className="msgBodys mt-0">
+                            <p className='mb-0 p-2'>Hello jamiu, what questions do you have for me today? </p>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="wrap2 mt -2">
+                    <p className='mb-0 text-end mx-3 msgIcon'><i className="fa-brands fa-bots"></i></p>
+                    <div class="sentMsg mt-0">
+                      <div class="myMsg">
+                          <p class="mb-0 p-2">Hello jamiu, what questions do you have for me today? </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="wrap1 pt-4">
+                    <div className="">
+                        <p className='mb-0 mx-3'><i className="fa-brands fa-bots"></i></p>
+                        <div className="msgBodys mt-0">
+                            <p className='mb-0 p-2'>Hello jamiu, what questions do you have for me today? </p>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="wrap2 mt -2">
+                    <p className='mb-0 text-end mx-3 msgIcon'><i className="fa-brands fa-bots"></i></p>
+                    <div class="sentMsg mt-0">
+                      <div class="myMsg">
+                          <p class="mb-0 p-2">Hello jamiu, what questions do you have for me today? </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
             </div>
         </div>
 
