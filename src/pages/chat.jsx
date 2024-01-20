@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import Sidebar from '../components/sideBar'
 import Topbar from '../components/topbar'
 import "/public/css/chat.css"
@@ -7,6 +7,7 @@ import $ from 'jquery';
 
 export default function Chat() {
   const msgInputs = useRef("")
+  const [role, setRole] = useState("Vendor")
 
   const toggle = () => {
     const topbar = document.querySelector(".topbar")
@@ -56,7 +57,7 @@ export default function Chat() {
 
   return (
     <div className='vendor_dashboard'>
-      <Sidebar/>
+      <Sidebar role={role}/>
 
       <div className="main_content">
         <Topbar toggle={toggle}/>

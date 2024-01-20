@@ -46,8 +46,9 @@
     background-color: rgb(233, 232, 232);
     color: var(--primary);
     padding: .5em;
-    padding-right: 8em;
+    padding-right: 2em;
     text-align: start;
+    border-radius: 20px;
 }
 
 .vendor_dashboard .sidebar .links p a:hover{

@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "/public/css/vendor_dashboard.css"
 import banner3 from "/img/home-banner3.jpg"
 import Sidebar from '../components/sideBar'
 import Topbar from '../components/topbar'
 
 export default function VendorDashboard() {
+  const [role, setRole] = useState("Vendor")
 
   const toggle = () => {
     const topbar = document.querySelector(".topbar")
@@ -17,7 +18,7 @@ export default function VendorDashboard() {
 
   return (
     <div className='vendor_dashboard d-flex'>
-      <Sidebar/>
+      <Sidebar role={role}/>
 
       <div className="main_content">
        <Topbar toggle={toggle}/>
