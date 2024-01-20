@@ -26,7 +26,7 @@ export default function Register() {
       </div>
 
       <div className="form pb-5">
-        <h2 className="text-center mt-5 fw-bold">Swift</h2>
+        <a href="/" className='text-dark'><h2 className="text-center mt-5 fw-bold">Swift</h2></a>
         <h4 className="text-center text-muted fw-bold">Sign up to Continue</h4>
         <p className="mb-0 text-center mt-3 alt">Already have an account? <a href="/login" className='mx-2'>Login in</a></p>
 
