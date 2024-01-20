@@ -291,7 +291,6 @@
 .vendor_dashboard .section2 .top_product p{
     color: grey;
     font-size: 14px;
-    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .vendor_dashboard .section2 .mny{
@@ -347,4 +346,11 @@
     color: grey;
     text-align: center;
     margin-top: 4em;
+}
+
+.vendor_dashboard .section3{
+    background-color: var(--primary);
+    padding:1em;
+    padding-bottom: .1em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

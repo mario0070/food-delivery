@@ -90,7 +90,7 @@ export default function VendorDashboard() {
                 </div>
                 <div className="">
                   <p className="mb-0 text-muted">Sales</p>
-                  <p className="mb-0 text-dark fs-5 mny">98%</p>
+                  <p className="mb-0 text-dark mny">98%</p>
                 </div>
               </div>
 
@@ -101,7 +101,7 @@ export default function VendorDashboard() {
                 </div>
                 <div className="">
                   <p className="mb-0 text-muted">Sales</p>
-                  <p className="mb-0 text-dark fs-5 mny">98%</p>
+                  <p className="mb-0 text-dark mny">98%</p>
                 </div>
               </div>
 
@@ -112,7 +112,7 @@ export default function VendorDashboard() {
                 </div>
                 <div className="">
                   <p className="mb-0 text-muted">Sales</p>
-                  <p className="mb-0 text-dark fs-5 mny">98%</p>
+                  <p className="mb-0 text-dark mny">98%</p>
                 </div>
               </div>
           </div>
@@ -130,39 +130,39 @@ export default function VendorDashboard() {
               </thead>
               <tbody>
                 <tr>
-                  <td>#SK2540</td>
+                  <td>#ks540</td>
                   <td>₦400</td>
-                  <td className='status fw-bold mny'>Paid</td>
+                  <td className='status mny'>Paid</td>
                 </tr>
                 <tr>
-                  <td>#SK2540</td>
+                  <td>#ks540</td>
                   <td>₦400</td>
-                  <td className='status fw-bold mny'>Paid</td>
+                  <td className='status mny'>Paid</td>
                 </tr>
                 <tr>
-                  <td>#SK2540</td>
+                  <td>#ks540</td>
                   <td>₦400</td>
-                  <td className='status fw-bold mny'>Paid</td>
+                  <td className='status mny'>Paid</td>
                 </tr>
                 <tr>
-                  <td>#SK2540</td>
+                  <td>#ks540</td>
                   <td>₦400</td>
-                  <td className='status fw-bold mny'>Paid</td>
+                  <td className='status mny'>Paid</td>
                 </tr>
                 <tr>
-                  <td>#SK2540</td>
+                  <td>#ks540</td>
                   <td>₦400</td>
-                  <td className='status fw-bold mny'>Paid</td>
+                  <td className='status mny'>Paid</td>
                 </tr>
                 <tr>
-                  <td>#SK2540</td>
+                  <td>#ks540</td>
                   <td>₦400</td>
-                  <td className='status fw-bold mny'>Paid</td>
+                  <td className='status mny'>Paid</td>
                 </tr>
                 <tr>
-                  <td>#SK2540</td>
+                  <td>#ks540</td>
                   <td>₦400</td>
-                  <td className='status fw-bold mny'>Paid</td>
+                  <td className='status mny'>Paid</td>
                 </tr>
                 
               </tbody>
@@ -175,6 +175,10 @@ export default function VendorDashboard() {
             <h4 className="">No Notifications!!</h4>
             <p className="">You do not have any notifications.</p>
           </div>
+        </div>
+
+        <div className="section3">
+          <p className="text-center text-white">© Copyright 2016, All rights reserved</p>
         </div>
 
       </div>
