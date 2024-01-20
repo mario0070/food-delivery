@@ -33,7 +33,7 @@ export default function Products() {
           });
           Toast.fire({
             icon: "info",
-            title: "under development"
+            title: "Coming soon!!"
           });
     }
 

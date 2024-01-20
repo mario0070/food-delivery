@@ -143,8 +143,80 @@
 
 .vendor_dashboard .analytic .box .d-flex{
     justify-content: space-between;
-    /* margin-top: 1em; */
     font-size: 14px;
     color: grey;
     padding: 0 2em;
+}
+
+.vendor_dashboard .profile{
+    padding: 1em;
+    padding-top: 7em;
+    justify-content: space-evenly;
+}
+
+.vendor_dashboard .profile .img{
+    margin-top: 2em;
+    width: 50%;
+    text-align: center;
+}
+
+.vendor_dashboard .profile .image{
+    position: relative;
+}
+
+.vendor_dashboard .profile .img .cam{
+    background-color: var(--primary);
+    color: var(--secondary);
+    width: 50px;
+    padding: .6em;
+    font-size: 1.2em;
+    border-radius: 50%;
+    position: absolute;
+    height: 50px;
+    text-align: center;
+    transform: translateY(50px) translateX(-50px);
+}
+
+.vendor_dashboard .profile .input{
+    width: 60%;
+}
+
+.vendor_dashboard .profile .input label{
+    display: block;
+    margin-bottom: .3em;
+    font-size: 14px;
+    color: grey;
+}
+
+.vendor_dashboard .profile input{
+    width: 80%;
+    border: 1px solid rgb(224, 224, 224);
+    margin-bottom: 1.5em;
+    padding: .6em;
+    border-radius: 6px;
+    outline: none;
+}
+
+.vendor_dashboard .profile input::placeholder{
+    font-size: 14px;
+    color: rgb(161, 161, 161);
+}
+
+.vendor_dashboard .profile img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    filter: drop-shadow(.1em .1em .1em rgba(0, 0, 0, 0.135));
+}
+
+.vendor_dashboard .profile .btn{
+    background-color: var(--primary);
+    color: var(--secondary);
+    font-size: 14px;
+}
+
+.vendor_dashboard .profile p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
