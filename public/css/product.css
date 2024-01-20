@@ -220,3 +220,30 @@
 .vendor_dashboard .profile p{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+.vendor_dashboard .orders{
+    padding: 1em;
+    padding-top: 6em;
+}
+
+.vendor_dashboard .orders .top{
+    border-bottom: 1px solid rgb(203, 203, 203);
+    padding-bottom: .5em;
+    width: fit-content;
+}
+
+.vendor_dashboard .orders .top p{
+    margin-right: 2em;
+    font-size: 14px;
+    color: gray;
+    padding: .4em;
+}
+
+.vendor_dashboard .orders .top p:hover{
+    cursor: pointer;
+}
+
+.vendor_dashboard .orders .top .active{
+    background-color: var(--primary);
+    color: var(--secondary);
+}
