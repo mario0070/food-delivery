@@ -1,0 +1,20 @@
+:root{
+    --primary: #2a3042;
+    --secondary: white;
+}
+
+.vendor_dashboard .products{
+    padding: 1em;
+    padding-top: 7em;
+    flex-wrap: wrap;
+}
+
+.vendor_dashboard .products .box{
+    box-shadow: .1em .1em 1em rgba(0, 0, 0, 0.16);
+    padding: 1em;
+    width: 300px;
+    height: 300px;
+    border-radius: 6px;
+    margin-right: 1em;
+    margin-bottom: 2em;
+}

@@ -9,6 +9,10 @@ import VendorDashboard from '../pages/vendor_dashboard'
 import UserDashboard from '../pages/user_dashboard'
 import AgentDashboard from '../pages/agent_dashboard'
 import Chat from '../pages/chat'
+import Products from '../pages/products'
+import AllOrders from '../pages/all_order'
+import Analytics from '../pages/analytic'
+import Profile from '../pages/profile'
 
 function App() {
   return (
@@ -23,6 +27,10 @@ function App() {
           <Route element={<Contact/>} path='/contact-us'/>
           <Route element={<About/>} path='/about-us'/>
           <Route element={<Chat/>} path='/chat'/>
+          <Route element={<Products/>} path='/products'/>
+          <Route element={<Analytics/>} path='/analytic'/>
+          <Route element={<Profile/>} path='/profile'/>
+          <Route element={<AllOrders/>} path='/orders'/>
         </Routes>
     </>
   )
