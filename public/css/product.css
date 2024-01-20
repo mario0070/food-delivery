@@ -124,3 +124,27 @@
     /* padding: .3em; */
     border-radius: 3px;
 }
+
+.vendor_dashboard .analytic{
+    padding: 1em;
+    padding-top: 5em;
+}
+
+.vendor_dashboard .analytic .box{
+    padding: 1em;
+    box-shadow: .1em .1em 1em rgba(0, 0, 0, 0.155);
+    height: 500px;
+    width: 80%;
+    margin: auto auto;
+    margin-bottom: 4em;
+    margin-top: 2em;
+    border-radius: 6px;
+}
+
+.vendor_dashboard .analytic .box .d-flex{
+    justify-content: space-between;
+    /* margin-top: 1em; */
+    font-size: 14px;
+    color: grey;
+    padding: 0 2em;
+}
