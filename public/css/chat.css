@@ -138,7 +138,7 @@
 .msg-container{
     height: 500px;
     overflow: scroll;
-    padding-bottom: 6em;
+    padding-bottom: 2em;
     width: fit-content;
 }
 
@@ -189,4 +189,40 @@
     display: flex;
     justify-content: flex-end;
     margin: 1em;
+}
+
+
+
+.chat_box .sendBtn{
+    transform: translateY(20px);
+    background-color: var(--primary);
+    padding: .7em;
+    padding-top: .1em;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.chat_box .sendBtn textarea{
+    width: 70%;
+    padding: .4em;
+    border: 1px solid rgb(223, 223, 223);
+    margin-right: 2em;
+    outline: none;
+    resize: none;
+    height:40px;
+    overflow:hidden;
+    border-radius: 8px;
+}
+
+.chat_box .sendBtn textarea::placeholder{
+    color: rgb(196, 193, 193);
+    font-size: 14px;
+}
+
+.chat_box button{
+    background-color: var(--primary);
+    font-size: 14px;
+    width: 10em;
+    border-radius: 10px;
+    border: 1px solid white;
 }
