@@ -21,9 +21,9 @@ function App() {
           <Route element={<LandingPage/>} path='/'/>
           <Route element={<Login/>} path='/login'/>
           <Route element={<Register/>} path='/register'/>
-          <Route element={<VendorDashboard/>} path='/vendor-dashboard'/>
-          <Route element={<UserDashboard/>} path='/user-dashboard'/>
-          <Route element={<AgentDashboard/>} path='/agent-dashboard'/>
+          <Route element={<VendorDashboard/>} path='/dashboard'/>
+          {/* <Route element={<UserDashboard/>} path='/user-dashboard'/>
+          <Route element={<AgentDashboard/>} path='/agent-dashboard'/> */}
           <Route element={<Contact/>} path='/contact-us'/>
           <Route element={<About/>} path='/about-us'/>
           <Route element={<Chat/>} path='/chat'/>

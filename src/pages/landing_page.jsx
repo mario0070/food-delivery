@@ -42,12 +42,9 @@ export default function LandingPage() {
                   <p className="mb-0 mt-4"><a href="/"><i class="fa-solid fa-house"></i> Home</a></p>
                   <p className="mb-0"><a href=""><i class="fa-brands fa-product-hunt"></i> Products</a></p>
                   <p className="mb-0"><a href="/about-us"><i class="fa-regular fa-address-card"></i> About Us</a></p>
-                  <p className="mb-0"><a href="/login"><i class="fa-solid fa-user-tie"></i> Join Our Agents</a></p>
                   <p className="mb-0"><a href="/login"><i class="fa-solid fa-arrow-right"></i> Log In</a></p>
                   <p className="mb-0"><a href="/register"><i class="fa-solid fa-arrow-right"></i> Sign Up</a></p>
-                  <p className="mb-0"><a href="/vendor-dashboard"><i class="fa-brands fa-red-river"></i> Vendor Dashboard</a></p>
-                  <p className="mb-0"><a href="/agent-dashboard"><i class="fa-solid fa-user-tie"></i> Agent Dashboard</a></p>
-                  <p className="mb-0"><a href="/user-dashboard"><i class="fa-solid fa-user"></i> User Dashboard</a></p>
+                  <p className="mb-0"><a href="/dashboard"><i class="fa-brands fa-red-river"></i> Dashboard</a></p>
                   {/* <button class="btn btn-secondary" type="button">A Button</button> */}
                 </div>
               </div>
@@ -58,8 +55,7 @@ export default function LandingPage() {
                 <p className="mb-0"><a href="/register">Sign Up</a></p>
                 <p className="mb-0"><a href="">Products</a></p>
                 <p className="mb-0"><a href="/about-us">About Us</a></p>
-                <p className="mb-0"><a href="">Join Our Agents</a></p>
-                <p className="mb-0"><a href="/vendor-dashboard">Vendor Dashboard</a></p>
+                <p className="mb-0"><a href="/dashboard">Dashboard</a></p>
                 {/* <p className="mb-0"><a href="/agent-dashboard">Agent Dashboard</a></p>
                 <p className="mb-0"><a href="/user-dashboard">User Dashboard</a></p> */}
               </div>

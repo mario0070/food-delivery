@@ -10,6 +10,9 @@ export default function Sidebar({role}) {
       if(val.innerText.toLowerCase() == ` ${page}`){
         val.classList.add("active")
       }
+      if(page == `dashboard`){
+        side_link[0].classList.add("active")
+      }
     })
   })
 
@@ -40,7 +43,7 @@ export default function Sidebar({role}) {
         <div className="top">
         <h2 className='p-2 mt-2 mb-4 text-white'><a href="/">Swift</a></h2>
         <div className="links">
-            <p className=""><Link to="/vendor-dashboard" className='side_link'><i class="fa-solid fa-house"></i> {role} Dashboard</Link></p>
+            <p className=""><Link to="/dashboard" className='side_link'><i class="fa-solid fa-house"></i> {role} Dashboard</Link></p>
             <p className=""><Link className='side_link' to="/chat"><i class="fa-solid fa-comments"></i> Chat</Link></p>
             <p className=""><Link className='side_link' to="/products"><i class="fa-brands fa-product-hunt"></i> Products</Link></p>
             <p className=""><Link className='side_link' to="/analytic"><i class="fa-solid fa-chart-simple"></i> Analytic</Link></p>
