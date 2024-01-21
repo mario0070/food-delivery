@@ -269,9 +269,17 @@
         padding: 1em !important;
     }
 
-    .product_listing .main .box{
+    .product_listing .main .box, .login .form{
         width: 100% !important;
         margin-right: 0 !important;
+    }
+
+    .login .form .text{
+        margin-left: 5% !important;
+    }
+
+    .login .form input{
+        width: 95% !important;
     }
 
     .product_listing .main .box img{
@@ -294,6 +302,10 @@
     
     .product_listing .search .input-group input{
         border: 1px solid rgb(193, 193, 193) !important;
+    }
+
+    .login .img{
+        display: none !important;
     }
 }
 
