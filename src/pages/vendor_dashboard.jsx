@@ -25,7 +25,7 @@ export default function VendorDashboard() {
 
         <div className="section1 special">
           <h4 className='mb-3'>Dashboard</h4>
-            <div className="d-flex">
+            <div className="d-flex overall">
                 <div className="left">
                     <div className="content">
                       <div className="top">

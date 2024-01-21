@@ -154,12 +154,31 @@
     .landing .section3 .text{
         width: 80% !important;
     }
+
+    .single .main{
+        padding: 2em 4em !important;
+    }
     
 }
 
 @media screen and (max-width: 950px) {
     .landing .carousel-caption{
         transform: translateY(-300px);
+    }
+
+    .vendor_dashboard .sidebar{
+        width: 0% !important;
+        overflow:  hidden !important;
+        padding: 0 !important;
+    }
+
+    .vendor_dashboard .main_content{
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+
+    .vendor_dashboard .topbar{
+        width: 100% !important;
     }
 
     .landing .topbar{
@@ -189,11 +208,112 @@
     .landing .logo{
         width: 60px;
     }
+
+    .single .main{
+        padding: 2em 2em !important;
+    }
     
     
 }
 
+@media screen and (max-width: 880px){
+    .vendor_dashboard .section1 .right .d-flex, .vendor_dashboard .section2{
+        flex-wrap: wrap !important;
+    }
+
+    .vendor_dashboard .section2 .box{
+        margin-bottom: 1em !important;
+        width: 100% !important;
+        margin-right: 0 !important;
+    }
+
+    .vendor_dashboard .section1 .right .d-flex .box{
+        margin-bottom: 1em !important;
+        width: 100% !important;
+    }
+
+    .vendor_dashboard .section1 .right, .vendor_dashboard .section1 .left{
+        width: 50% !important;
+    }
+    
+    .vendor_dashboard .section1 .chart{
+        margin-bottom: 2em;
+    }
+}
+
 @media screen and (max-width: 750px){
+    .vendor_dashboard .overall{
+        flex-wrap: wrap  !important;
+    }
+    
+    .vendor_dashboard .section1 .right, .vendor_dashboard .section1 .left, .vendor_dashboard .products .box{
+        width: 100% !important;
+        margin-right: 0 !important;
+    }
+
+    .vendor_dashboard .topbar input{
+        display: none !important;
+    }
+
+    .vendor_dashboard .section1 .right .box{
+        margin-right: 0 !important;
+    }
+
+    .vendor_dashboard .profile{
+        flex-wrap: wrap !important;
+        padding: 0 !important;
+        padding-top: 7em !important;
+    }
+
+    .vendor_dashboard .profile .img{
+        width: 100% !important;
+        margin-top: 0 !important;
+    }
+
+    .vendor_dashboard .profile .input{
+        width: 100% !important;
+        margin-top: 2em;
+        padding: 1em;
+    }
+
+    .vendor_dashboard .profile input{
+        width: 100% !important;
+    }
+
+    .vendor_dashboard .chat{
+        flex-wrap: wrap !important;
+    }
+
+    .vendor_dashboard .chat .all_chats, .vendor_dashboard .chat .chat_box{
+        width: 100% !important;
+        margin-right: 0 !important;
+        margin-bottom: 4em;
+        padding: 0em !important;
+    }
+    
+    .msg-container .wrap1, .msg-container .wrap2{
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    .single .main{
+        padding: 0em 1em !important;
+        flex-wrap: wrap !important;
+    }
+
+    .single .main .left .images, .single .main .left .text{
+        width: 100% !important;
+    }
+
+    .single .main .left{
+        flex-wrap: wrap !important;
+    }
+
+    .single .main .left, .single .main .right{
+        width: 100% !important;
+        margin-right: 0 !important;
+    }
+
     .footer{
         margin-top: 5em !important;
         padding: 1em !important;
@@ -243,9 +363,17 @@
         padding: 1em !important;
     }
 
-    .product_listing .main .box{
+    .product_listing .main .box, .login .form{
         width: 100% !important;
         margin-right: 0 !important;
+    }
+
+    .login .form .text{
+        margin-left: 5% !important;
+    }
+
+    .login .form input{
+        width: 95% !important;
     }
 
     .product_listing .main .box img{
@@ -268,6 +396,10 @@
     
     .product_listing .search .input-group input{
         border: 1px solid rgb(193, 193, 193) !important;
+    }
+
+    .login .img{
+        display: none !important;
     }
 }
 
@@ -545,4 +677,115 @@
 .product_listing .search .btn{
     background-color: rgb(59, 180, 59);
     color: white;
+}
+
+
+.single .img, .single .section1{
+    height: 100px !important;
+}
+
+.single .main {
+    margin-top: 4em;
+    padding: 2em 8em;
+}
+
+.single .main .right{
+    width: 30%;
+    padding: 1em;
+    font-size: 14px;
+    color: rgb(87, 87, 87);
+}
+
+.single .main .right input{
+    border: 1px solid rgb(204, 204, 204);
+    width: 100%;
+    margin-bottom: 1em;
+    padding: .6em;
+    border-radius: 4px;
+    outline: none;
+}
+
+.single .main .right .text{
+    margin-left: .8em;
+}
+
+.single .main .right .arrive{
+    font-size: 12px;
+}
+
+.single .main .right i{
+    border: 1px solid rgb(168, 168, 168);
+    height: fit-content;
+    padding: .5em;
+    border-radius: 3px;
+    transform: translateY(2px);
+}
+
+.single .main .left{
+    width: 70%;
+    margin-right: 2em;
+    padding: 1em;
+}
+
+.single .main .box{
+    box-shadow: .1em .1em 1em rgba(0, 0, 0, 0.107);
+    height: fit-content;
+    border-radius: 6px;
+    margin-bottom: 2em;
+}
+
+.single .main .left .images{
+    width: 40%;
+    background-color: rgb(218, 218, 218);
+    height: fit-content;
+    overflow: hidden;
+    margin-right: 1em;
+}
+
+.single .main .left .images img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.single .main .left .text{
+    margin-top: 1em;
+    width: 60%;
+}
+
+.single .main .left h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(59, 180, 59);
+}
+
+.single .main .left .disc{
+    text-decoration: line-through;
+    /* font-size: 14px; */
+    color: rgb(135, 135, 135);
+}
+
+.single .main .left .stock{
+    font-size: 12px;
+    background-color: rgba(59, 180, 59, 0.176);
+    padding: .1em 1em;
+    width: fit-content;
+    border-radius: 3px;
+    margin-top: 1em;
+}
+
+.single .main .left .shipping{
+    color: rgb(135, 135, 135);
+    font-size: 12px;
+}
+
+.single .main .left button{
+    background-color: #3bb43b;
+    color: white;
+    width: 100%;
+    padding: .6em;
+}
+
+.single .main .left .desc{
+    font-size: 14px;
+    color: grey;
 }

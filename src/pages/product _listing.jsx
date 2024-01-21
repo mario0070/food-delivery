@@ -47,7 +47,7 @@ export default function ProductListing() {
         <div className="text-center search">
             <div class="input-group">
                 <span class="input-group-text"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
-                <input type="text" class="" placeholder="search products......"/>
+                <input type="text" class="" placeholder="search products, vendors......"/>
             </div>
             <button className='btn'>Search products</button>
         </div>
@@ -61,7 +61,7 @@ export default function ProductListing() {
                     <p className="desc">brand new iphone 29 pro with charger and lasting battery</p>
                     <h4 className="mny mb-0 fw-bold">₦200,000</h4>
                     <p className="mb-2 discount">₦210,000</p>
-                    <p className="icon btn mt-2">view <i class="fa-solid fa-arrow-right"></i></p>
+                    <a href='/products/product_id' className="icon btn mb-3 mt-2">view <i class="fa-solid fa-arrow-right"></i></a>
                     <p className="listed"><i class="fa-solid fa-check"></i> Listed by Diamond Store & Retail.</p>
                 </div>
             </div>
@@ -74,7 +74,7 @@ export default function ProductListing() {
                     <p className="desc">brand new iphone 29 pro with charger and lasting battery</p>
                     <h4 className="mny mb-0 fw-bold">₦200,000</h4>
                     <p className="mb-2 discount">₦210,000</p>
-                    <p className="icon btn mt-2">view <i class="fa-solid fa-arrow-right"></i></p>
+                    <a href='/products/product_id' className="icon btn mb-3 mt-2">view <i class="fa-solid fa-arrow-right"></i></a>
                     <p className="listed"><i class="fa-solid fa-check"></i> Listed by Diamond Store & Retail.</p>
                 </div>
             </div>
@@ -87,7 +87,7 @@ export default function ProductListing() {
                     <p className="desc">brand new iphone 29 pro with charger and lasting battery</p>
                     <h4 className="mny mb-0 fw-bold">₦200,000</h4>
                     <p className="mb-2 discount">₦210,000</p>
-                    <p className="icon btn mt-2">view <i class="fa-solid fa-arrow-right"></i></p>
+                    <a href='/products/product_id' className="icon btn mb-3 mt-2">view <i class="fa-solid fa-arrow-right"></i></a>
                     <p className="listed"><i class="fa-solid fa-check"></i> Listed by Diamond Store & Retail.</p>
                 </div>
             </div>
@@ -100,7 +100,7 @@ export default function ProductListing() {
                     <p className="desc">brand new iphone 29 pro with charger and lasting battery</p>
                     <h4 className="mny mb-0 fw-bold">₦200,000</h4>
                     <p className="mb-2 discount">₦210,000</p>
-                    <p className="icon btn mt-2">view <i class="fa-solid fa-arrow-right"></i></p>
+                    <a href='/products/product_id' className="icon btn mb-3 mt-2">view <i class="fa-solid fa-arrow-right"></i></a>
                     <p className="listed"><i class="fa-solid fa-check"></i> Listed by Diamond Store & Retail.</p>
                 </div>
             </div>
@@ -113,7 +113,7 @@ export default function ProductListing() {
                     <p className="desc">brand new iphone 29 pro with charger and lasting battery</p>
                     <h4 className="mny mb-0 fw-bold">₦200,000</h4>
                     <p className="mb-2 discount">₦210,000</p>
-                    <p className="icon btn mt-2">view <i class="fa-solid fa-arrow-right"></i></p>
+                    <a href='/products/product_id' className="icon btn mb-3 mt-2">view <i class="fa-solid fa-arrow-right"></i></a>
                     <p className="listed"><i class="fa-solid fa-check"></i> Listed by Diamond Store & Retail.</p>
                 </div>
             </div>
@@ -126,7 +126,7 @@ export default function ProductListing() {
                     <p className="desc">brand new iphone 29 pro with charger and lasting battery</p>
                     <h4 className="mny mb-0 fw-bold">₦200,000</h4>
                     <p className="mb-2 discount">₦210,000</p>
-                    <p className="icon btn mt-2">view <i class="fa-solid fa-arrow-right"></i></p>
+                    <a href='/products/product_id' className="icon btn mb-3 mt-2">view <i class="fa-solid fa-arrow-right"></i></a>
                     <p className="listed"><i class="fa-solid fa-check"></i> Listed by Diamond Store & Retail.</p>
                 </div>
             </div>
@@ -139,7 +139,7 @@ export default function ProductListing() {
                     <p className="desc">brand new iphone 29 pro with charger and lasting battery</p>
                     <h4 className="mny mb-0 fw-bold">₦200,000</h4>
                     <p className="mb-2 discount">₦210,000</p>
-                    <p className="icon btn mt-2">view <i class="fa-solid fa-arrow-right"></i></p>
+                    <a href='/products/product_id' className="icon btn mb-3 mt-2">view <i class="fa-solid fa-arrow-right"></i></a>
                     <p className="listed"><i class="fa-solid fa-check"></i> Listed by Diamond Store & Retail.</p>
                 </div>
             </div>
@@ -152,7 +152,7 @@ export default function ProductListing() {
                     <p className="desc">brand new iphone 29 pro with charger and lasting battery</p>
                     <h4 className="mny mb-0 fw-bold">₦200,000</h4>
                     <p className="mb-2 discount">₦210,000</p>
-                    <p className="icon btn mt-2">view <i class="fa-solid fa-arrow-right"></i></p>
+                    <a href='/products/product_id' className="icon btn mb-3 mt-2">view <i class="fa-solid fa-arrow-right"></i></a>
                     <p className="listed"><i class="fa-solid fa-check"></i> Listed by Diamond Store & Retail.</p>
                 </div>
             </div>
@@ -165,7 +165,85 @@ export default function ProductListing() {
                     <p className="desc">brand new iphone 29 pro with charger and lasting battery</p>
                     <h4 className="mny mb-0 fw-bold">₦200,000</h4>
                     <p className="mb-2 discount">₦210,000</p>
-                    <p className="icon btn mt-2">view <i class="fa-solid fa-arrow-right"></i></p>
+                    <a href='/products/product_id' className="icon btn mb-3 mt-2">view <i class="fa-solid fa-arrow-right"></i></a>
+                    <p className="listed"><i class="fa-solid fa-check"></i> Listed by Diamond Store & Retail.</p>
+                </div>
+            </div>
+            <div className="box">
+                <div className="overflow-hidden">
+                    <img src={banner3} alt="" />
+                </div>
+                <div className="p-3">
+                    <p className="fw-bold mb-0">Iphone 29 pro</p>
+                    <p className="desc">brand new iphone 29 pro with charger and lasting battery</p>
+                    <h4 className="mny mb-0 fw-bold">₦200,000</h4>
+                    <p className="mb-2 discount">₦210,000</p>
+                    <a href='/products/product_id' className="icon btn mb-3 mt-2">view <i class="fa-solid fa-arrow-right"></i></a>
+                    <p className="listed"><i class="fa-solid fa-check"></i> Listed by Diamond Store & Retail.</p>
+                </div>
+            </div>
+            <div className="box">
+                <div className="overflow-hidden">
+                    <img src={packages} alt="" />
+                </div>
+                <div className="p-3">
+                    <p className="fw-bold mb-0">Iphone 29 pro</p>
+                    <p className="desc">brand new iphone 29 pro with charger and lasting battery</p>
+                    <h4 className="mny mb-0 fw-bold">₦200,000</h4>
+                    <p className="mb-2 discount">₦210,000</p>
+                    <a href='/products/product_id' className="icon btn mb-3 mt-2">view <i class="fa-solid fa-arrow-right"></i></a>
+                    <p className="listed"><i class="fa-solid fa-check"></i> Listed by Diamond Store & Retail.</p>
+                </div>
+            </div>
+            <div className="box">
+                <div className="overflow-hidden">
+                    <img src={phone} alt="" />
+                </div>
+                <div className="p-3">
+                    <p className="fw-bold mb-0">Iphone 29 pro</p>
+                    <p className="desc">brand new iphone 29 pro with charger and lasting battery</p>
+                    <h4 className="mny mb-0 fw-bold">₦200,000</h4>
+                    <p className="mb-2 discount">₦210,000</p>
+                    <a href='/products/product_id' className="icon btn mb-3 mt-2">view <i class="fa-solid fa-arrow-right"></i></a>
+                    <p className="listed"><i class="fa-solid fa-check"></i> Listed by Diamond Store & Retail.</p>
+                </div>
+            </div>
+            <div className="box">
+                <div className="overflow-hidden">
+                    <img src={banner3} alt="" />
+                </div>
+                <div className="p-3">
+                    <p className="fw-bold mb-0">Iphone 29 pro</p>
+                    <p className="desc">brand new iphone 29 pro with charger and lasting battery</p>
+                    <h4 className="mny mb-0 fw-bold">₦200,000</h4>
+                    <p className="mb-2 discount">₦210,000</p>
+                    <a href='/products/product_id' className="icon btn mb-3 mt-2">view <i class="fa-solid fa-arrow-right"></i></a>
+                    <p className="listed"><i class="fa-solid fa-check"></i> Listed by Diamond Store & Retail.</p>
+                </div>
+            </div>
+            <div className="box">
+                <div className="overflow-hidden">
+                    <img src={packages} alt="" />
+                </div>
+                <div className="p-3">
+                    <p className="fw-bold mb-0">Iphone 29 pro</p>
+                    <p className="desc">brand new iphone 29 pro with charger and lasting battery</p>
+                    <h4 className="mny mb-0 fw-bold">₦200,000</h4>
+                    <p className="mb-2 discount">₦210,000</p>
+                    <a href='/products/product_id' className="icon btn mb-3 mt-2">view <i class="fa-solid fa-arrow-right"></i></a>
+                    <p className="listed"><i class="fa-solid fa-check"></i> Listed by Diamond Store & Retail.</p>
+                </div>
+            </div>
+            <div className="box">
+                <div className="overflow-hidden">
+                    <img src={phone} alt="" />
+                </div>
+                <div className="p-3">
+                    <p className="fw-bold mb-0">Iphone 29 pro</p>
+                    <p className="desc">brand new iphone 29 pro with charger and lasting battery</p>
+                    <h4 className="mny mb-0 fw-bold">₦200,000</h4>
+                    <p className="mb-2 discount">₦210,000</p>
+                    <a href='/products/product_id' className="icon btn mb-3 mt-2">view <i class="fa-solid fa-arrow-right"></i></a>
                     <p className="listed"><i class="fa-solid fa-check"></i> Listed by Diamond Store & Retail.</p>
                 </div>
             </div>
