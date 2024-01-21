@@ -154,6 +154,10 @@
     .landing .section3 .text{
         width: 80% !important;
     }
+
+    .single .main{
+        padding: 2em 4em !important;
+    }
     
 }
 
@@ -189,11 +193,33 @@
     .landing .logo{
         width: 60px;
     }
+
+    .single .main{
+        padding: 2em 2em !important;
+    }
     
     
 }
 
 @media screen and (max-width: 750px){
+    .single .main{
+        padding: 0em 1em !important;
+        flex-wrap: wrap !important;
+    }
+
+    .single .main .left .images, .single .main .left .text{
+        width: 100% !important;
+    }
+
+    .single .main .left{
+        flex-wrap: wrap !important;
+    }
+
+    .single .main .left, .single .main .right{
+        width: 100% !important;
+        margin-right: 0 !important;
+    }
+
     .footer{
         margin-top: 5em !important;
         padding: 1em !important;
@@ -599,6 +625,7 @@
     box-shadow: .1em .1em 1em rgba(0, 0, 0, 0.107);
     height: fit-content;
     border-radius: 6px;
+    margin-bottom: 2em;
 }
 
 .single .main .left .images{
