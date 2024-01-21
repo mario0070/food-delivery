@@ -14,6 +14,7 @@ import AllOrders from '../pages/all_order'
 import Analytics from '../pages/analytic'
 import Profile from '../pages/profile'
 import ProductListing from '../pages/product _listing'
+import Single from '../pages/single'
 
 function App() {
   return (
@@ -23,8 +24,6 @@ function App() {
           <Route element={<Login/>} path='/login'/>
           <Route element={<Register/>} path='/register'/>
           <Route element={<VendorDashboard/>} path='/dashboard'/>
-          {/* <Route element={<UserDashboard/>} path='/user-dashboard'/>
-          <Route element={<AgentDashboard/>} path='/agent-dashboard'/> */}
           <Route element={<Contact/>} path='/contact-us'/>
           <Route element={<About/>} path='/about-us'/>
           <Route element={<Chat/>} path='/chat'/>
@@ -32,6 +31,7 @@ function App() {
           <Route element={<Analytics/>} path='/analytic'/>
           <Route element={<Profile/>} path='/profile'/>
           <Route element={<AllOrders/>} path='/orders'/>
+          <Route element={<Single/>} path='/products/:id'/>
           <Route element={<ProductListing/>} path='/product-listing'/>
         </Routes>
     </>
