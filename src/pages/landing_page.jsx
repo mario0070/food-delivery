@@ -11,96 +11,15 @@ import Packages from "/img/Packages.jpg"
 import phone1 from "/img/phone1.jpeg"
 import Groceries2 from "/img/Groceries2.jpeg"
 import img1 from "/img/img1.png"
-import img2 from "/img/img2.png"
-import img3 from "/img/img3.png"
-import img4 from "/img/img4.png"
 import agent from "/img/agent.png"
 import delivery_man from "/img/delivery_man.png"
-import img5 from "/img/img5.jpeg"
-import img6 from "/img/img6.jpg"
-import pizza from "/img/pizza.jpg"
-import logo from "/img/logo.svg"
 import Footer from '../components/footer'
+import Landing_top from '../components/landing_top'
 
 export default function LandingPage() {
   return (
     <div className='landing'>
-      <div className="section1">
-          <div className="topbar d-flex">
-              <div className="d-flex">
-                <h2 className='text-uppercase text-dark'><a href="/">swift</a></h2>
-                <img className='logo mx-2' src={logo} alt="" />
-              </div>
-              <p data-bs-toggle="offcanvas" data-bs-target="#demo" className="mb-0 btn d-none open_menu"><i class="fa-solid fa-bars"></i></p>
-
-              <div class="offcanvas offcanvas-start" id="demo">
-                <div class="offcanvas-header">
-                  <h2 class="offcanvas-title">Swift</h2>
-                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
-                </div>
-                <div class="offcanvas-body">
-                  <p className="mb-0 mt-4"><a href="/"><i class="fa-solid fa-house"></i> Home</a></p>
-                  <p className="mb-0"><a href=""><i class="fa-brands fa-product-hunt"></i> Products</a></p>
-                  <p className="mb-0"><a href="/about-us"><i class="fa-regular fa-address-card"></i> About Us</a></p>
-                  <p className="mb-0"><a href="/login"><i class="fa-solid fa-user-tie"></i> Join Our Agents</a></p>
-                  <p className="mb-0"><a href="/login"><i class="fa-solid fa-arrow-right"></i> Log In</a></p>
-                  <p className="mb-0"><a href="/register"><i class="fa-solid fa-arrow-right"></i> Sign Up</a></p>
-                  <p className="mb-0"><a href="/vendor-dashboard"><i class="fa-brands fa-red-river"></i> Vendor Dashboard</a></p>
-                  <p className="mb-0"><a href="/agent-dashboard"><i class="fa-solid fa-user-tie"></i> Agent Dashboard</a></p>
-                  <p className="mb-0"><a href="/user-dashboard"><i class="fa-solid fa-user"></i> User Dashboard</a></p>
-                  {/* <button class="btn btn-secondary" type="button">A Button</button> */}
-                </div>
-              </div>
-
-              <div className="d-flex links">
-                <p className="mb-0"><a href="/">Home</a></p>
-                <p className="mb-0"><a href="/login">Log In</a></p>
-                <p className="mb-0"><a href="/register">Sign Up</a></p>
-                <p className="mb-0"><a href="">Products</a></p>
-                <p className="mb-0"><a href="/about-us">About Us</a></p>
-                <p className="mb-0"><a href="">Join Our Agents</a></p>
-                <p className="mb-0"><a href="/vendor-dashboard">Vendor Dashboard</a></p>
-                {/* <p className="mb-0"><a href="/agent-dashboard">Agent Dashboard</a></p>
-                <p className="mb-0"><a href="/user-dashboard">User Dashboard</a></p> */}
-              </div>
-          </div>
-      </div>
-
-      <div className="carousel slide carousel-fade img"  id="demo"  data-bs-ride="carousel">
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img src={banner1} alt="Los Angeles" className="d-block"/>
-            <div className="carousel-caption text-start">
-              <h3>Reliable Service Every Time</h3>
-              <p>GET THE FASTEST PRODUCT DELIVERY</p>
-              <span className='d-block'>Try Us And See How Good Our Services Are.</span>
-              <a href="/login" className="btn">Get Started</a>
-            </div>
-          </div>
-        </div>
-        
-        <div className="carousel-item">
-          <img src={banner2} alt="Los Angeles" className="d-block"/>
-          <div className="carousel-caption text-start">
-            <h3>Choose Your Favorite</h3>
-            <p className='text-uppercase'>Stay At Home We Will Deliver Your Order</p>
-            <span className='d-block'>Do You Want A Fast Service? Just Call Us..</span>
-            <a href="/login" className="btn">Get Started</a>
-          </div>
-        </div>
-      
-      
-        <div className="carousel-item">
-          <img src={banner3} alt="Los Angeles" className="d-block"/>
-          <div className="carousel-caption text-start">
-            <h3>Eat And Enjoy</h3>
-            <p className='text-uppercase'>Order free food delivery every day at your convenience</p>
-            <span className='d-block'>No shoping, no cooking, no counting and no cleaning. Enjoy your healthy meals with your family.</span>
-            <a href="/login" className="btn">Get Started</a>
-          </div>
-        </div>
-        
-      </div>
+     <Landing_top/>
 
       <div className="section2 mt-5">
         <p className="text-center top mb-1">Place Your Order Now.</p>
@@ -169,7 +88,7 @@ export default function LandingPage() {
           <h2 className='mb-5'>Get Started Today!</h2>
           <h4 className="mb-3">Stay At Home We Will Deliver Your Order</h4>
           <p className="">From 8 to 10 in the morning. Delivery is free. Outside the city Shipping costs ₦2,000. Delivery days are Monday, Tuesday, Wednesday, Thursday, Friday, Saturday.</p>
-          <a href="" className="btn">View Products</a>
+          <a href="/product-listing" className="btn">View Products</a>
         </div>
         <div className="">
           <img src={agent} alt="" />

@@ -28,7 +28,7 @@ export default function Login() {
       </div>
 
       <div className="form pb-5">
-        <h2 className="text-center mt-5 fw-bold">Swift</h2>
+        <a href="/" className='text-dark'><h2 className="text-center mt-5 fw-bold">Swift</h2></a>
         <h4 className="text-center text-muted fw-bold">Login to Continue</h4>
         <p className="mb-0 text-center mt-3 alt">Don't have an account? <a href="/register" className='mx-2'>Sign up</a></p>
 

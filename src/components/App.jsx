@@ -13,6 +13,7 @@ import Products from '../pages/products'
 import AllOrders from '../pages/all_order'
 import Analytics from '../pages/analytic'
 import Profile from '../pages/profile'
+import ProductListing from '../pages/product _listing'
 
 function App() {
   return (
@@ -21,9 +22,9 @@ function App() {
           <Route element={<LandingPage/>} path='/'/>
           <Route element={<Login/>} path='/login'/>
           <Route element={<Register/>} path='/register'/>
-          <Route element={<VendorDashboard/>} path='/vendor-dashboard'/>
-          <Route element={<UserDashboard/>} path='/user-dashboard'/>
-          <Route element={<AgentDashboard/>} path='/agent-dashboard'/>
+          <Route element={<VendorDashboard/>} path='/dashboard'/>
+          {/* <Route element={<UserDashboard/>} path='/user-dashboard'/>
+          <Route element={<AgentDashboard/>} path='/agent-dashboard'/> */}
           <Route element={<Contact/>} path='/contact-us'/>
           <Route element={<About/>} path='/about-us'/>
           <Route element={<Chat/>} path='/chat'/>
@@ -31,6 +32,7 @@ function App() {
           <Route element={<Analytics/>} path='/analytic'/>
           <Route element={<Profile/>} path='/profile'/>
           <Route element={<AllOrders/>} path='/orders'/>
+          <Route element={<ProductListing/>} path='/product-listing'/>
         </Routes>
     </>
   )

@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <div className='footer'>
       <div className="d-flex">
-        <div className="content">
+        <div className="content mb-4">
           <div className="text-center header">
             <h2 className='text-uppercase text-dark'><a href="/">swift</a>
             <img className='logo mx-2' src={logo} alt="" /></h2>
