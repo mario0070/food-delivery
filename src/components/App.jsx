@@ -13,6 +13,7 @@ import Products from '../pages/products'
 import AllOrders from '../pages/all_order'
 import Analytics from '../pages/analytic'
 import Profile from '../pages/profile'
+import ProductListing from '../pages/product _listing'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route element={<Analytics/>} path='/analytic'/>
           <Route element={<Profile/>} path='/profile'/>
           <Route element={<AllOrders/>} path='/orders'/>
+          <Route element={<ProductListing/>} path='/product-listing'/>
         </Routes>
     </>
   )
