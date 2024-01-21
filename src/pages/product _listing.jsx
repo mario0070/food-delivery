@@ -47,7 +47,7 @@ export default function ProductListing() {
         <div className="text-center search">
             <div class="input-group">
                 <span class="input-group-text"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
-                <input type="text" class="" placeholder="search products......"/>
+                <input type="text" class="" placeholder="search products, vendors......"/>
             </div>
             <button className='btn'>Search products</button>
         </div>
