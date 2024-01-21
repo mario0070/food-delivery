@@ -14,9 +14,24 @@ export default function Single() {
        <Landing_top/>
 
        <div className="main d-flex">
-        
-          <div className="box left">
 
+          <div className="box left d-flex">
+              <div className="images">
+                <img src={phone} alt="" />
+              </div>
+              <div className="text">
+                  <h4 className='fw-bold text-muted'>Iphone 20 Pro</h4>
+                  <h2 className="mny fw-bold mb-1">₦ 200,000</h2>
+                  <p className="mb-1 disc">₦ 210,00</p>
+                  <p className="stock">in stock</p>
+                  <p className="shipping">+ shipping from ₦ 760 to your location</p>
+                  <button className='btn'><i class="fa-solid fa-cart-shopping"></i> Order Now</button>
+
+                  <div className="mt-5">
+                    <p className='fw-bold text-muted mb-1'>Product Description</p>
+                    <p className="desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa iusto doloribus accusantium recusandae! Laboriosam commodi, ab eveniet consequatur quidem harum ipsa animi ducimus repudiandae sequi excepturi qui, non itaque beatae.</p>
+                  </div>
+              </div>
           </div>
 
           <div className="box right">
