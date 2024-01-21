@@ -172,6 +172,18 @@
         padding: 0 !important;
     }
 
+    .vendor_dashboard .mainside{
+        display: none !important;
+    }
+
+    .topbar .offcanvas{
+        width: 80% !important;
+    }
+
+    .vendor_dashboard .customside{
+        display: inline !important;
+    }
+
     .vendor_dashboard .main_content{
         width: 100% !important;
         margin-left: 0 !important;

@@ -21,7 +21,7 @@ export default function VendorDashboard() {
       <Sidebar role={role}/>
 
       <div className="main_content">
-       <Topbar toggle={toggle}/>
+       <Topbar toggle={toggle} role={role}/>
 
         <div className="section1 special">
           <h4 className='mb-3'>Dashboard</h4>
