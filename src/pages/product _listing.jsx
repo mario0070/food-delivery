@@ -44,6 +44,13 @@ export default function ProductListing() {
             </div>
        </div>
 
+        <div className="text-center search">
+            <div class="input-group">
+                <span class="input-group-text"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+                <input type="text" class="" placeholder="search products......"/>
+            </div>
+            <button className='btn'>Search products</button>
+        </div>
        <div className="main flex-wrap d-flex">
             <div className="box">
                 <div className="overflow-hidden">

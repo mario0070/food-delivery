@@ -239,6 +239,7 @@
     }
 
     .product_listing .main{
+        margin-top: 2em !important;
         padding: 1em !important;
     }
 
@@ -250,7 +251,24 @@
     .product_listing .main .box img{
         height: 200px  !important;
     }
+
+    .product_listing .ads{
+        display: none !important;
+    }
+
+    .product_listing .search{
+        margin-top: 2em !important;
+        padding: .3em;
+    }
+
+    .product_listing .search .input-group{
+        width: 100% !important;
+        flex-wrap: nowrap !important;
+    }
     
+    .product_listing .search .input-group input{
+        border: 1px solid rgb(193, 193, 193) !important;
+    }
 }
 
 .landing .section3{
@@ -399,7 +417,7 @@
 }
 
 .product_listing .main{
-    margin-top: 13em;
+    margin-top: 2em;
     padding: 2em;
     margin-bottom: 2em;
     justify-content: space-evenly;
@@ -501,4 +519,30 @@
     font-size: 14px;
     height: 40px;
     width: 40px;
+}
+
+.product_listing .search{
+    margin-top: 12em;
+}
+
+.product_listing .search .input-group{
+    width: 60%;
+    padding: .5em;
+    border-radius: 6px;
+    margin: auto auto;
+}
+
+.product_listing .search input{
+    padding: .7em;
+    width: 90%;
+    border: 1px solid rgb(229, 229, 229);
+    outline: none;
+    border-radius: 6px;
+    border-left: none;
+
+}
+
+.product_listing .search .btn{
+    background-color: rgb(59, 180, 59);
+    color: white;
 }
