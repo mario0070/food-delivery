@@ -9,7 +9,6 @@ export default function VendorDashboard() {
   const [role, setRole] = useState("Vendor")
   const [cookie, setCookie, removeCookie] = useCookies("")
   const [user, setUser] = useState(cookie.user ??  "")
-  console.log(cookie.user)
 
   const toggle = () => {
     const topbar = document.querySelector(".topbar")
