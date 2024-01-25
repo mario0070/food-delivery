@@ -17,7 +17,32 @@ import { useCookies } from 'react-cookie'
 
 export default function Landing_top() {
   const [cookie, setCookie, removeCookie] = useCookies("")
+  const [logOuts, setlogout, removeLogout] = useCookies(["user"])
   const [user, setUser] = useState(cookie.user ??  "")
+
+  const logOut = (e) => {
+    e.preventDefault()
+    Swal.fire({
+        title: "Log Out?",
+        text: "Your account will be log out!!",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#2a3042",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, log out!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+          removeLogout(["user"])
+          window.location.href = "/"
+          Swal.fire({
+            title: "Logged out!",
+            text: "Account is log out successfully.",
+            icon: "success"
+          });
+        }
+    });
+  }
+
 
   return (
     <div>
@@ -35,12 +60,20 @@ export default function Landing_top() {
                   <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
                 </div>
                 <div class="offcanvas-body">
-                  <p className="mb-0 mt-4"><a href="/"><i class="fa-solid fa-house"></i> Home</a></p>
+                  <p className="mb-0 mt-4"><a href="/dashboard"><i class="fa-brands fa-red-river"></i> Dashboard</a></p>
+                  <p className="mb-0"><a href="/"><i class="fa-solid fa-house"></i> Home</a></p>
                   <p className="mb-0"><a href="/product-listing"><i class="fa-brands fa-product-hunt"></i> Products</a></p>
                   <p className="mb-0"><a href="/about-us"><i class="fa-regular fa-address-card"></i> About Us</a></p>
-                  <p className="mb-0"><a href="/login"><i class="fa-solid fa-arrow-right"></i> Log In</a></p>
-                  <p className="mb-0"><a href="/register"><i class="fa-solid fa-arrow-right"></i> Sign Up</a></p>
-                  <p className="mb-0"><a href="/dashboard"><i class="fa-brands fa-red-river"></i> Dashboard</a></p>
+                    {user ? 
+                      <>
+                        <p className="mb-0" onClick={logOut}><a href="#"><i class="fa-solid text-danger fa-arrow-right-from-bracket"></i> Logout</a></p>
+                      </>
+                      :
+                      <>
+                        <p className="mb-0"><a href="/login"><i class="fa-solid fa-arrow-right"></i> Log In</a></p>
+                        <p className="mb-0"><a href="/register"><i class="fa-solid fa-arrow-right"></i> Sign Up</a></p>
+                      </>
+                    }
                   {/* <button class="btn btn-secondary" type="button">A Button</button> */}
                 </div>
               </div>
@@ -49,7 +82,7 @@ export default function Landing_top() {
                 <p className="mb-0"><a href="/">Home</a></p>
                 {user ? 
                   <>
-                    <p className="mb-0"><a href="#">Logout</a></p>
+                    <p className="mb-0" onClick={logOut}><a href="#">Logout</a></p>
                   </>
                   :
                   <>

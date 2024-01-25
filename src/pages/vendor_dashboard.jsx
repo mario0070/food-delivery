@@ -69,6 +69,7 @@ export default function VendorDashboard() {
                   </div>
 
                   <div className="right">
+                    { user.role == "vendor" &&
                       <div className="d-flex">
                         <div className="box">
                             <p className="">Active Orders</p>
@@ -91,6 +92,32 @@ export default function VendorDashboard() {
                           <h4 className="">₦0</h4>
                         </div>
                       </div>
+                    }
+                    
+                    { user.role == "user" &&
+                      <div className="d-flex">
+                        <div className="box">
+                            <p className="">Active Orders</p>
+                            <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
+                            <h4 className="">0</h4>
+                        </div>
+                        <div className="box">
+                            <p className="">Fufilled Orders</p>
+                            <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
+                            <h4 className="">0</h4>
+                        </div>
+                        <div className="box">
+                          <p className="">Closed Orders</p>
+                            <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
+                          <h4 className="">0</h4>
+                        </div>
+                        <div className="box">
+                          <p className="">Total Orders</p>
+                          <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
+                          <h4 className="">0</h4>
+                        </div>
+                      </div>
+                    }
                       <div className="chart">
                         
                       </div>
