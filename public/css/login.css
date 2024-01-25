@@ -83,6 +83,13 @@
     color: rgb(59, 180, 59);;
 }
 
+.for_what{
+    font-size: 12px;
+}
+
+.login .dropdown li a{
+    font-size: 12px !important;
+}
 
 .login .social{
     width: 12%;

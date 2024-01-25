@@ -1,28 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import banner3 from "/img/home-banner3.jpg"
 import { Link } from 'react-router-dom'
+import { useCookies } from 'react-cookie'
 
 export default function Topbar({toggle, role}) {
-    const logOut = (e) => {
-      e.preventDefault()
-      Swal.fire({
-          title: "Log Out?",
-          text: "Your account will be log out!!",
-          icon: "question",
-          showCancelButton: true,
-          confirmButtonColor: "#2a3042",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, log out!"
-      }).then((result) => {
-          if (result.isConfirmed) {
-            Swal.fire({
-              title: "Logged out!",
-              text: "Account is log out successfully.",
-              icon: "success"
-            });
-          }
-      });
-    }
+  const [cookie, setCookie, removeCookie] = useCookies("")
+  const [user, setUser] = useState(cookie.user ?? "")
+  
+  const logOut = (e) => {
+    e.preventDefault()
+    Swal.fire({
+        title: "Log Out?",
+        text: "Your account will be log out!!",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#2a3042",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, log out!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Logged out!",
+            text: "Account is log out successfully.",
+            icon: "success"
+          });
+        }
+    });
+  }
 
 
   return (
@@ -40,7 +44,7 @@ export default function Topbar({toggle, role}) {
             <div class="dropdown mx-2">
                 <div className="d-flex" data-bs-toggle="dropdown">
                 <img src={banner3} alt="img"/>
-                <p className="mb-0 dropdown-toggle text-muted text-capitalize">jamiu</p>
+                <p className="mb-0 dropdown-toggle text-muted text-capitalize">{user.firstname}</p>
                 </div>
                 <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#"><i class="fa-regular mx-1 fa-user"></i> Profile</a></li>

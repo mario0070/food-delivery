@@ -1,9 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "/public/css/login.css"
 import agent from "/img/agent.png"
 import banner1 from "/img/home-banner1.jpg"
+import axios from '../utils/axios'
+import { CookiesProvider, useCookies } from "react-cookie";
 
 export default function Login() {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const userEmail = useRef("")
+  const userPassword = useRef("")
+  const [cookie, setCookie] = useCookies("")
   
   useEffect(() => {
     var focus = document.querySelectorAll(".focus")
@@ -14,12 +21,51 @@ export default function Login() {
         focus[index].classList.add("active")
       })
 
-      focus[index].addEventListener("focusout",() => {
-        move_up[index].classList.remove("active")
-        focus[index].classList.remove("active")
+      val.addEventListener("keydown", () => {
+        move_up[index].classList.add("active")
+        focus[index].classList.add("active")
       })
     })
   })
+
+  const alert = (icon, msg) => {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: icon,
+        title: msg
+      });
+  }
+
+  const logIn = e => {
+    e.preventDefault()
+    var submitbtn = document.querySelector(".submitbtn")
+    submitbtn.innerHTML = `<div class="spinner-border spinner-border-sm"></div>`
+    axios.post("/user/login", {
+      email : userEmail.current.value,
+      password : userPassword.current.value,
+    })
+    .then(res => {
+      setCookie("user",res.data.user)
+      alert("success", "User is login")
+      window.location.href = "/dashboard"
+    })
+    .catch(err => {
+      alert("error", "invalid credentials")
+      console.log(err)
+      submitbtn.innerHTML = `Login`
+    })
+  }
+
 
   return (
     <div className='login d-flex'>
@@ -33,18 +79,20 @@ export default function Login() {
         <p className="mb-0 text-center mt-3 alt">Don't have an account? <a href="/register" className='mx-2'>Sign up</a></p>
 
         <div className="inputs mt-5">
-           <div className="text">
-              <input className='focus' type="text" />
-              <p className='move_up'>Email</p>
-           </div>
-           <div className="text">
-              <input className='focus' type="text" />
-              <p className='move_up'>Password</p>
-           </div>
-           <div className="text-center">
-              <a href="">Forgot Password?</a>
-              <button className='btn'>Login</button>
-           </div>
+           <form action="" onSubmit={logIn}>
+              <div className="text">
+                  <input required className='focus' type="text" ref={userEmail} onClick={e => setEmail(e.target.value)} />
+                  <p className='move_up'>Email</p>
+              </div>
+              <div className="text">
+                  <input required className='focus' type="password" ref={userPassword} onClick={e => setPassword(e.target.value)} />
+                  <p className='move_up'>Password</p>
+              </div>
+              <div className="text-center">
+                  <a href="">Forgot Password?</a>
+                  <button className='btn submitbtn'>Login</button>
+              </div>
+           </form>
            
             <p className="text-center mt-4">Or sign up using </p>
             <div className="social d-flex text-center">
