@@ -35,56 +35,59 @@ export default function Profile() {
             title: "Coming soon!!"
           });
     }
+    if(cookie.user){
+        return (
+            <div className='vendor_dashboard'>
+                <Sidebar role={role}/>
 
-    return (
-        <div className='vendor_dashboard'>
-            <Sidebar role={role}/>
+                <div className="main_content">
+                    <Topbar toggle={toggle}/>
 
-            <div className="main_content">
-                <Topbar toggle={toggle}/>
+                    <div className="special profile d-flex">
+                        <div className="img">
+                            <div className="image">
+                                <img src={banner3} alt="" />
+                                <label htmlFor='file' className="cam btn"><i class="fa-solid fa-camera-retro"></i></label>
+                                <input type="file" className='d-none' name="file" id="file" />
+                            </div>
+                            <p className="fw-bold mt-2 mb-1 text-capitalize">{user.firstname} {user.lastname}</p>
+                            <p className="mb-2 text-muted text-capitalize">{user.role}</p>
+                            <button className='btn' onClick={alert}>Save changes</button>
+                        </div>
 
-                <div className="special profile d-flex">
-                    <div className="img">
-                        <div className="image">
-                            <img src={banner3} alt="" />
-                            <label htmlFor='file' className="cam btn"><i class="fa-solid fa-camera-retro"></i></label>
-                            <input type="file" className='d-none' name="file" id="file" />
+                        <div className="input">
+                            <div className="">
+                                <label htmlFor=""><i class="fa-solid fa-user"></i> Full Name</label>
+                                <input type="text" placeholder='Enter your fullname' value={user.firstname + " " + user.lastname} />
+                            </div>
+                            <div className="">
+                                <label htmlFor=""><i class="fa-solid fa-envelope"></i> Email Address</label>
+                                <input type="text" placeholder='Enter your email address' value={user.email} />
+                            </div>
+                            <div className="">
+                                <label htmlFor=""><i class="fa-solid fa-business-time"></i> Business Name</label>
+                                <input type="text" placeholder='Enter your business name' value={user.business_name} />
+                            </div>
+                            <div className="">
+                                <label htmlFor=""><i class="fa-solid fa-business-time"></i> Address</label>
+                                <input type="text" placeholder='Enter your business name' value={user.address} />
+                            </div>
+                            <div className="">
+                                <label htmlFor=""><i class="fa-solid fa-lock"></i> Change password</label>
+                                <input type="password"  placeholder='*********' value="********"/>
+                            </div>
+                            <div className="">
+                                <label htmlFor=""><i class="fa-solid fa-lock"></i> Confirm Change password</label>
+                                <input type="password"  placeholder='*********' />
+                            </div>
                         </div>
-                        <p className="fw-bold mt-2 mb-1 text-capitalize">{user.firstname} {user.lastname}</p>
-                        <p className="mb-2 text-muted text-capitalize">{user.role}</p>
-                        <button className='btn' onClick={alert}>Save changes</button>
-                    </div>
 
-                    <div className="input">
-                        <div className="">
-                            <label htmlFor=""><i class="fa-solid fa-user"></i> Full Name</label>
-                            <input type="text" placeholder='Enter your fullname' value={user.firstname + " " + user.lastname} />
-                        </div>
-                        <div className="">
-                            <label htmlFor=""><i class="fa-solid fa-envelope"></i> Email Address</label>
-                            <input type="text" placeholder='Enter your email address' value={user.email} />
-                        </div>
-                        <div className="">
-                            <label htmlFor=""><i class="fa-solid fa-business-time"></i> Business Name</label>
-                            <input type="text" placeholder='Enter your business name' value={user.business_name} />
-                        </div>
-                        <div className="">
-                            <label htmlFor=""><i class="fa-solid fa-business-time"></i> Address</label>
-                            <input type="text" placeholder='Enter your business name' value={user.address} />
-                        </div>
-                        <div className="">
-                            <label htmlFor=""><i class="fa-solid fa-lock"></i> Change password</label>
-                            <input type="password"  placeholder='*********' value="********"/>
-                        </div>
-                        <div className="">
-                            <label htmlFor=""><i class="fa-solid fa-lock"></i> Confirm Change password</label>
-                            <input type="password"  placeholder='*********' />
-                        </div>
                     </div>
 
                 </div>
-
             </div>
-        </div>
-    )
+        )
+    }else{
+        window.location.href="/login"
+    }
 }
