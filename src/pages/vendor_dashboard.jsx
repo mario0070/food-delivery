@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "/public/css/vendor_dashboard.css"
 import banner3 from "/img/home-banner3.jpg"
 import Sidebar from '../components/side_bar'
 import Topbar from '../components/topbar'
 import { useCookies } from 'react-cookie'
+import axios from '../utils/axios'
 
 export default function VendorDashboard() {
+  const [totalproduct, settotalproduct] = useState(0)
   const [role, setRole] = useState("Vendor")
+  const [loaded, setloaded] = useState(false)
   const [cookie, setCookie, removeCookie] = useCookies("")
   const [user, setUser] = useState(cookie.user ??  "")
 
@@ -19,6 +22,19 @@ export default function VendorDashboard() {
     sidebar.classList.toggle("active")
   }
   if(cookie.user){
+
+    useEffect(() => {
+      axios.post("/product/vendor-product", {
+          id : user._id
+      }).then(res => {
+        setloaded(true)
+        settotalproduct(res.data.data.length)
+      })
+      .catch(error => {
+          console.log(error)
+      })
+    },[totalproduct])
+
     return (
       <div className='vendor_dashboard d-flex'>
         <Sidebar role={role}/>
@@ -40,13 +56,13 @@ export default function VendorDashboard() {
                           <p className="mb-2 text-capitalize"><i class="fa-regular fa-user"></i> {user.lastname} {user.firstname}</p>
                           <p className="d-block mb-0 text-capitalize"><i class="fa-brands fa-critical-role"></i> {user.role}</p>
                           <p className="mb-0 mt-2"><i class="fa-solid fa-venus-double"></i> ...</p>
-                          <button>View Profile</button>
+                          <button><a href="/profile" className='text-white text-decoration-none'>View Profile</a></button>
                         </div>
                       </div>
                       <div className="content content2 p-3">
                         <h6 className='mb-4 fw-bold text-dark'>Monthly Earning</h6>
                         <p className="text-muted">This month</p>
-                        <h4 className="mb-4">₦34,252</h4>
+                        <h4 className="mb-4">₦0</h4>
                         <p className="text-muted">From previous period</p>
                         <button>View more</button>
                       </div>
@@ -57,22 +73,22 @@ export default function VendorDashboard() {
                         <div className="box">
                             <p className="">Active Orders</p>
                             <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
-                            <h4 className="">1,235</h4>
+                            <h4 className="">0</h4>
                         </div>
                         <div className="box">
-                            <p className="">Decline Orders</p>
+                            <p className="">Fufilled Orders</p>
                             <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
-                            <h4 className="">1,235</h4>
+                            <h4 className="">0</h4>
                         </div>
                         <div className="box">
                           <p className="">Total Products</p>
                             <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
-                          <h4 className="">1,235</h4>
+                          <h4 className="">{!loaded ? <div class="text-center text-dark spinner-border spinner-border-sm"></div> : totalproduct}</h4>
                         </div>
                         <div className="box">
                           <p className="">Revenue</p>
                           <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
-                          <h4 className="">₦4000</h4>
+                          <h4 className="">₦0</h4>
                         </div>
                       </div>
                       <div className="chart">
@@ -87,7 +103,7 @@ export default function VendorDashboard() {
                 <i class="fa-brands fa-product-hunt"></i>
                 <h6 className='fw-bold mb-2'>Top Selling product</h6>
                 <h6 className="text-center mt-4 text-muted">Shoes</h6>
-                <h4 className="text-center fw-bold mny">₦600</h4>
+                <h4 className="text-center fw-bold mny">₦0</h4>
                 <p className="text-center mb-4">From previous period</p>
 
                 <div className="d-flex">
@@ -136,31 +152,6 @@ export default function VendorDashboard() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>#ks540</td>
-                    <td>₦400</td>
-                    <td className='status mny'>Paid</td>
-                  </tr>
-                  <tr>
-                    <td>#ks540</td>
-                    <td>₦400</td>
-                    <td className='status mny'>Paid</td>
-                  </tr>
-                  <tr>
-                    <td>#ks540</td>
-                    <td>₦400</td>
-                    <td className='status mny'>Paid</td>
-                  </tr>
-                  <tr>
-                    <td>#ks540</td>
-                    <td>₦400</td>
-                    <td className='status mny'>Paid</td>
-                  </tr>
-                  <tr>
-                    <td>#ks540</td>
-                    <td>₦400</td>
-                    <td className='status mny'>Paid</td>
-                  </tr>
                   <tr>
                     <td>#ks540</td>
                     <td>₦400</td>

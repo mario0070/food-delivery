@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import banner1 from "/img/home-banner1.jpg"
 import banner2 from "/img/home-banner2.jpg"
 import banner3 from "/img/home-banner3.jpg"
@@ -13,8 +13,12 @@ import img1 from "/img/img1.png"
 import agent from "/img/agent.png"
 import delivery_man from "/img/delivery_man.png"
 import Footer from '../components/footer'
+import { useCookies } from 'react-cookie'
 
 export default function Landing_top() {
+  const [cookie, setCookie, removeCookie] = useCookies("")
+  const [user, setUser] = useState(cookie.user ??  "")
+
   return (
     <div>
          <div className="section1">
@@ -43,8 +47,16 @@ export default function Landing_top() {
 
               <div className="d-flex links">
                 <p className="mb-0"><a href="/">Home</a></p>
-                <p className="mb-0"><a href="/login">Log In</a></p>
-                <p className="mb-0"><a href="/register">Sign Up</a></p>
+                {user ? 
+                  <>
+                    <p className="mb-0"><a href="#">Logout</a></p>
+                  </>
+                  :
+                  <>
+                    <p className="mb-0"><a href="/login">Log In</a></p>
+                    <p className="mb-0"><a href="/register">Sign Up</a></p>
+                  </>
+                }
                 <p className="mb-0"><a href="/product-listing">Products</a></p>
                 <p className="mb-0"><a href="/about-us">About Us</a></p>
                 <p className="mb-0"><a href="/dashboard">Dashboard</a></p>
