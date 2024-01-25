@@ -20,7 +20,7 @@
 .vendor_dashboard .products .box{
     box-shadow: .1em .1em 1em rgba(0, 0, 0, 0.16);
     width: 300px;
-    height: 300px;
+    height: fit-content;
     border-radius: 6px;
     margin-right: 1em;
     margin-bottom: 2em;
@@ -32,6 +32,13 @@
     height: 150px;
     object-fit: contain;
     border-bottom: 1px solid rgb(237, 236, 236);
+}
+
+.vendor_dashboard .products .status{
+    background-color: rgba(255, 0, 0, 0.08);
+    padding: .1em .6em;
+    font-size: 12px !important;
+    width: fit-content;
 }
 
 .vendor_dashboard .products .text p {

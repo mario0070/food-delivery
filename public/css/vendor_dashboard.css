@@ -18,6 +18,15 @@
     overflow: scroll;
 }
 
+.vendor_dashboard .orders .listBy{
+    background-color: rgba(8, 180, 8, 0.128);
+    padding: .1em 1em;
+    width: fit-content;
+    text-align: start;
+    font-size: 12px !important;
+    border-radius: 3px;
+}
+
 .vendor_dashboard .sidebar h2{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: fixed;

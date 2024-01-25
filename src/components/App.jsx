@@ -31,7 +31,7 @@ function App() {
           <Route element={<Analytics/>} path='/analytic'/>
           <Route element={<Profile/>} path='/profile'/>
           <Route element={<AllOrders/>} path='/orders'/>
-          <Route element={<Single/>} path='/products/:id'/>
+          <Route element={<Single/>} path='/product/:id'/>
           <Route element={<ProductListing/>} path='/product-listing'/>
         </Routes>
     </>
