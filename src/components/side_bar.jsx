@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
+import { useCookies } from 'react-cookie'
 import { Link } from 'react-router-dom'
 
 export default function Sidebar({role}) {
+  const [logOuts, setlogout, removeLogout] = useCookies(["user"])
  
   useEffect(() => {
     var side_link = document.querySelectorAll(".side_link")
@@ -28,6 +30,7 @@ export default function Sidebar({role}) {
         confirmButtonText: "Yes, log out!"
     }).then((result) => {
         if (result.isConfirmed) {
+          removeLogout(["user"])
           Swal.fire({
             title: "Logged out!",
             text: "Account is log out successfully.",

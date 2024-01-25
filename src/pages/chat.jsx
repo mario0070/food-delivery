@@ -4,10 +4,13 @@ import Topbar from '../components/topbar'
 import "/public/css/chat.css"
 import banner3 from "/img/home-banner3.jpg"
 import $ from 'jquery';
+import { useCookies } from 'react-cookie'
 
 export default function Chat() {
   const msgInputs = useRef("")
   const [role, setRole] = useState("Vendor")
+  const [cookie, setCookie, removeCookie] = useCookies("")
+  const [user, setUser] = useState(cookie.user ?? "")
 
   const toggle = () => {
     const topbar = document.querySelector(".topbar")
@@ -69,7 +72,7 @@ export default function Chat() {
                 <div className="d-flex">
                   <img src={banner3} alt="" />
                     <div className="mx-3">
-                      <p className="mb-0 fw-bold">Ganiu Jamiu</p>
+                      <p className="mb-0 fw-bold text-capitalize">{user.lastname} {user.firstname}</p>
                       <div className="d-flex">
                         <p className='dot mb-0'></p>
                         <p className="mb-0">Active</p>
@@ -99,7 +102,7 @@ export default function Chat() {
                     </div>
                     <i class="fa-regular fa-message"></i>
                   </div>
-                  <div className="d-flex single">
+                  {/* <div className="d-flex single">
                     <div className="d-flex">
                         <p className="dot mb-0"></p>
                         <img src={banner3} alt="" />
@@ -120,7 +123,7 @@ export default function Chat() {
                         </div>
                     </div>
                     <i class="fa-regular fa-message"></i>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -129,7 +132,7 @@ export default function Chat() {
             <div className="chat_box">
                 <div className="head d-flex">
                   <div className="">
-                    <p className="fw-bold mb-0">Ganiu Jamiu</p>
+                    <p className="fw-bold mb-0 text-capitalize">{user.lastname} {user.firstname}</p>
                     <div className="d-flex">
                       <p className="dot mb-0"></p>
                       <p className="mb-0">Active Now</p>

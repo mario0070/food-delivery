@@ -3,12 +3,14 @@ import "/public/css/login.css"
 import agent from "/img/agent.png"
 import banner1 from "/img/home-banner1.jpg"
 import axios from '../utils/axios'
+import { CookiesProvider, useCookies } from "react-cookie";
 
 export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const userEmail = useRef("")
   const userPassword = useRef("")
+  const [cookie, setCookie] = useCookies("")
   
   useEffect(() => {
     var focus = document.querySelectorAll(".focus")
@@ -53,7 +55,7 @@ export default function Login() {
       password : userPassword.current.value,
     })
     .then(res => {
-      console.log(res)
+      setCookie("user",res.data.user)
       alert("success", "User is login")
       window.location.href = "/dashboard"
     })

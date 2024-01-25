@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import agent from "/img/agent.png"
 import axios from '../utils/axios'
+import { useCookies } from 'react-cookie'
 
 export default function Register() {
+  const [cookie, setCookie] = useCookies("")
   const [email, setEmail] = useState("")
   const [role, setrole] = useState("user")
   const [password, setPassword] = useState("")
@@ -74,6 +76,7 @@ export default function Register() {
         alert("error", res.data.message)
       }else{
         alert("success", "signup was successful")
+        setCookie("user", res.data.user)
         window.location.href = "/dashboard"
       }
       submitbtn.innerHTML = `Sign up`

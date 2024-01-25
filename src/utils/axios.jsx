@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios';
-// import { CookiesProvider, useCookies } from "react-cookie";
-// import Cookies from 'js-cookie';
+import { CookiesProvider, useCookies } from "react-cookie";
+import Cookies from 'js-cookie';
 
 
 
