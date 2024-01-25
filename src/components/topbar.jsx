@@ -5,6 +5,7 @@ import { useCookies } from 'react-cookie'
 
 export default function Topbar({toggle, role}) {
   const [cookie, setCookie, removeCookie] = useCookies("")
+  const [logOuts, setlogout, removeLogout] = useCookies(["user"])
   const [user, setUser] = useState(cookie.user ?? "")
   
   const logOut = (e) => {
@@ -19,6 +20,7 @@ export default function Topbar({toggle, role}) {
         confirmButtonText: "Yes, log out!"
     }).then((result) => {
         if (result.isConfirmed) {
+          removeLogout(["user"])
           Swal.fire({
             title: "Logged out!",
             text: "Account is log out successfully.",
@@ -51,14 +53,14 @@ export default function Topbar({toggle, role}) {
                 <li><a class="dropdown-item" href="#"><i class="fa-solid mx-1 fa-gear"></i> Settings</a></li>
                 <li><a class="dropdown-item" href="#"><i class="fa-solid mx-1 fa-wallet"></i> Wallet</a></li>
                 <li><a class="dropdown-item" href="#"><i class="fa-solid mx-1 fa-bell"></i> Notifications</a></li>
-                <li><a class="dropdown-item fw-bold text-danger" href="#"><i class="fa-solid mx-1 fa-arrow-right-from-bracket"></i> Log Out</a></li>
+                <li onClick={logOut}><a class="dropdown-item fw-bold text-danger" href="#"><i class="fa-solid mx-1 fa-arrow-right-from-bracket"></i> Log Out</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="offcanvas offcanvas-start" id="sideline">
           <div class="offcanvas-header">
-            <h2 class="offcanvas-title">Swift</h2>
+            <h2 class="offcanvas-title"><a href="/">Swift</a></h2>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
           </div>
           <div class="offcanvas-body">

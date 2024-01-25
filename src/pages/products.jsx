@@ -11,12 +11,14 @@ import axios from '../utils/axios'
 export default function Products() {
     const [role, setRole] = useState("Vendor")
     const [show, setShow] = useState(false)
+    const [loaded, setloaded] = useState(false)
     const [product, setproduct] = useState([])
     const [cookie, setCookie, removeCookie] = useCookies("")
     const [user, setUser] = useState(cookie.user ??  "")
     const name = useRef("")
     const description = useRef("")
     const price = useRef("")
+    const [file, setFile] = useState();
 
     const toggle = () => {
         const topbar = document.querySelector(".topbar")
@@ -25,6 +27,12 @@ export default function Products() {
         topbar.classList.toggle("active")
         main_content.classList.toggle("active")
         sidebar.classList.toggle("active")
+    }
+
+    function handleChange(e) {
+        // console.log(e.target.files);
+        console.log(file)
+        setFile(URL.createObjectURL(e.target.files[0]));
     }
 
     const alert = (icon, msg) => {
@@ -45,7 +53,7 @@ export default function Products() {
           });
     }
 
-    const deleteProduct = () => {
+    const deleteProduct = (id) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -56,6 +64,15 @@ export default function Products() {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
+                axios.post("/product/delete", {
+                    id : id
+                })
+                .then(res => {
+                    console.log(res)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
               Swal.fire({
                 title: "Deleted!",
                 text: "Your product has been deleted.",
@@ -83,6 +100,7 @@ export default function Products() {
         axios.post("/product/vendor-product", {
             id : user._id
         }).then(res => {
+            setloaded(true)
             setproduct(res.data.data)
         })
         .catch(error => {
@@ -91,6 +109,7 @@ export default function Products() {
     },[product])
 
     if(cookie.user){
+
         const createProduct = (e) => {
             e.preventDefault();
             var submitbtn = document.querySelector(".submitbtn")
@@ -129,73 +148,45 @@ export default function Products() {
                             <p className="mb-0 btn total">1 out of 1 page</p>
                             <p className="mb-0 btn"><i className='fa-solid fa-angles-right'></i></p>
                         </div>
-                        <div className="box add text-center">
-                        <p className="text-muted btn" onClick={showForm}><i class="fa-solid fa-plus"></i></p>
-                        <p className="p">Add Product</p>
-                        </div>
+                        
 
-                        <div className="box form">
-                           <form action="" onSubmit={createProduct}>
-                                <input ref={name} required type="text" className='mt-3'  placeholder='Product Name'/>
-                                <input ref={price} required type="text"  placeholder='Price'/>
-                                <input ref={description} required type="text"  placeholder='Description'/>
-                                <label htmlFor="file">Choose product image <i class="fa-solid fa-camera"></i></label>
-                                <input type="file" className='d-none' name="file" id="file" />
-                                <button className='btn submitbtn'>Add Product</button>
-                                <p className="text-muted arrow btn" onClick={showForm}><i class="fa-solid fa-arrow-left"></i></p>
-                           </form>
-                        </div>
-
-                        { product.map(val => {
-                            return(
-                                <div className="box">
-                                    <img src={packages} alt="" />
-                                    <div className="text p-3">
-                                        <p className="fw-bold mb-0">{val.name}</p>
-                                        <p className="text-muted info">{val.description}.</p>
-                                        <p className="text-danger btn" onClick={deleteProduct}><i class="fa-solid fa-trash"></i></p>
-                                        <h4 className='fw-bold mny'>₦{val.price}0</h4>
-                                    </div>
+                        { loaded ? 
+                            <>
+                                <div className="box add text-center">
+                                    <p className="text-muted btn" onClick={showForm}><i class="fa-solid fa-plus"></i></p>
+                                    <p className="p">Add Product</p>
                                 </div>
-                            )
-                        })}
+                                <div className="box form">
+                                    <form action="" onSubmit={createProduct}>
+                                            <input ref={name} required type="text" className='mt-3'  placeholder='Product Name'/>
+                                            <input ref={price} required type="text"  placeholder='Price'/>
+                                            <input ref={description} required type="text"  placeholder='Description'/>
+                                            <label htmlFor="file">Choose product image <i class="fa-solid fa-camera"></i></label>
+                                            <input type="file" onChange={handleChange} className='d-none' name="file" id="file" />
+                                            <button className='btn submitbtn'>Add Product</button>
+                                            <p className="text-muted arrow btn" onClick={closeForm}><i class="fa-solid fa-arrow-left"></i></p>
+                                    </form>
+                                </div>
 
-                        {/* <div className="box">
-                            <img src={phone} alt="" />
-                            <div className="text p-3">
-                                <p className="fw-bold mb-0">Iphone 29 pro</p>
-                                <p className="text-muted info">brand new iphone 29 pro with....</p>
-                                <p className="text-danger btn" onClick={deleteProduct}><i class="fa-solid fa-trash"></i></p>
-                                <h4 className='fw-bold mny'>₦200,000</h4>
-                            </div>
-                        </div>
-                        <div className="box">
-                            <img src={packages} alt="" />
-                            <div className="text p-3">
-                                <p className="fw-bold mb-0">Iphone 29 pro</p>
-                                <p className="text-muted info">brand new iphone 29 pro with....</p>
-                                <p className="text-danger btn" onClick={deleteProduct}><i class="fa-solid fa-trash"></i></p>
-                                <h4 className='fw-bold mny'>₦200,000</h4>
-                            </div>
-                        </div>
-                        <div className="box">
-                            <img src={phone} alt="" />
-                            <div className="text p-3">
-                                <p className="fw-bold mb-0">Iphone 29 pro</p>
-                                <p className="text-muted info">brand new iphone 29 pro with....</p>
-                                <p className="text-danger btn" onClick={deleteProduct}><i class="fa-solid fa-trash"></i></p>
-                                <h4 className='fw-bold mny'>₦200,000</h4>
-                            </div>
-                        </div>
-                        <div className="box">
-                            <img src={phone} alt="" />
-                            <div className="text p-3">
-                                <p className="fw-bold mb-0">Iphone 29 pro</p>
-                                <p className="text-muted info">brand new iphone 29 pro with....</p>
-                                <p className="text-danger btn" onClick={deleteProduct}><i class="fa-solid fa-trash"></i></p>
-                                <h4 className='fw-bold mny'>₦200,000</h4>
-                            </div>
-                        </div> */}
+                                { product.map(val => {
+                                    return(
+                                        <div className="box">
+                                            <img src={packages} alt="" />
+                                            <div className="text p-3">
+                                                <p className="fw-bold mb-0 text-capitalize">{val.name}</p>
+                                                <p className="text-muted desc info text-capitalize">{val.description}.</p>
+                                                <p className="text-danger btn" onClick={() => deleteProduct(val._id)}><i class="fa-solid fa-trash"></i></p>
+                                                <h4 className='fw-bold mny'>₦{new Intl.NumberFormat('en-IN', {}).format(val.price)}</h4>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                            </>
+                            :
+                            <>
+                                <div class="text-center text-success spinner-border mt-5"></div>
+                            </>
+                        }
                     
                     </div>
                 </div>
