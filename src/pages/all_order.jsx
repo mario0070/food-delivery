@@ -7,6 +7,7 @@ import phone from "/img/phone1.jpeg"
 import packages from "/img/Packages.jpg"
 import { useCookies } from 'react-cookie'
 import axios from '../utils/axios'
+// import moment from 'moment'
 
 export default function allOrders() {
     const [role, setRole] = useState("Vendor")
@@ -25,17 +26,45 @@ export default function allOrders() {
     }
 
     useEffect(() => {
-        axios.post("/product/vendor-product", {
-            id : user._id
+        axios.post("/order/orderby", {
+            orderBy : user._id
         }).then(res => {
             setloaded(true)
-            console.log(res)
             setproduct(res.data.data)
         })
         .catch(error => {
             console.log(error)
         })
     },[product])
+
+    const cancelOrder = (id) => {
+        Swal.fire({
+            title: "Are you sure? ",
+            text: "You want to cancel this order!",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#2a3042",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, cancel"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.post("/order/cancel", {
+                    id : id
+                })
+                .then(res => {
+                    console.log(res)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+              Swal.fire({
+                title: "Order Cancelled!",
+                text: "Your order has been cancelled.",
+                icon: "success"
+              });
+            }
+        });
+    }
 
     return (
         <div className='vendor_dashboard'>
@@ -46,24 +75,27 @@ export default function allOrders() {
 
                 <div className="special orders">
                     <div className="top nav-tabs d-flex" role="tablist">
-                        <p data-bs-toggle="tab" className="mb-0 nav-link active">Active Orders (0)</p>
+                        <p data-bs-toggle="tab" className="mb-0 nav-link active">Active Orders ({product.length})</p>
                         <p data-bs-toggle="tab" className="mb-0 nav-link ">Fulfilled Orders (0)</p>
                         <p data-bs-toggle="tab" className="mb-0 nav-link ">Closed Orders (0)</p>
+                        <p data-bs-toggle="tab" className="mb-0 nav-link">All Orders ({product.length})</p>
                     </div>
 
-                    <div className="products special d-flex">
-                        {!loaded && <div class="text-center text-success spinner-border mt-5"></div> }
+                    <div className="products d-flex">
+                        {!loaded && <div class="text-center text-dark spinner-border mt-5"></div> }
                         {product.map(val => {
                             return(
                                 <div className="box">
                                     <img src={packages} alt="" />
                                     <div className="text p-3">
-                                        <p className="fw-bold mb-0 text-capitalize">{val.name}</p>
-                                        <p className="text-muted desc info text-capitalize">{val.description}.</p>
-                                        <p className="text-danger btn" onClick={() => deleteProduct(val._id)}><i class="fa-solid fa-trash"></i></p>
-                                        <h4 className='fw-bold mny'>₦{new Intl.NumberFormat('en-IN', {}).format(val.price)}</h4>
-                                        <p className="listBy">Listed By {val.owner.business_name ?? "N/A"}</p>
-                                        <p className="status">Status : {val.owner.business_name ?? "N/A"}</p>
+                                        <p className="fw-bold mb-0 text-capitalize">{val.product.name}</p>
+                                        <p className="text-muted desc info text-capitalize">{val.product.description}.</p>
+                                        <p className="text-danger btn" onClick={() => cancelOrder(val._id)}><i class="fa-solid fa-trash"></i></p>
+                                        <h4 className='fw-bold mny'>₦{new Intl.NumberFormat('en-IN', {}).format(val.product.price)}</h4>
+                                        <p className="listBy text-capitalize">Listed By {val.owner.business_name ?? "Business Name N/A"}</p>
+                                        <p className="status text-capitalize">Status : {val.status ?? "N/A"}</p>
+                                        {/* <p className="status text-capitalize">Date : {moment().format(`${val.createdAt.split("-")[0]}-${val.createdAt.split("-")[1]}-${val.createdAt.split("-")[2].split("T")[0]}`,) ?? "N/A"} </p> */}
+                                        {/* <p className="status">Time : {moment(val.createdAt).startOf('mins').fromNow() ?? "N/A"} </p> */}
                                     </div>
                                 </div>
                             )
