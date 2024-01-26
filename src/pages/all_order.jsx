@@ -7,6 +7,7 @@ import phone from "/img/phone1.jpeg"
 import packages from "/img/Packages.jpg"
 import { useCookies } from 'react-cookie'
 import axios from '../utils/axios'
+import moment from 'moment'
 
 export default function allOrders() {
     const [role, setRole] = useState("Vendor")
@@ -37,6 +38,35 @@ export default function allOrders() {
         })
     },[product])
 
+    const deleteProduct = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#2a3042",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.post("/product/delete", {
+                    id : id
+                })
+                .then(res => {
+                    console.log(res)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your product has been deleted.",
+                icon: "success"
+              });
+            }
+        });
+    }
+
     return (
         <div className='vendor_dashboard'>
             <Sidebar role={role}/>
@@ -65,7 +95,9 @@ export default function allOrders() {
                                         <h4 className='fw-bold mny'>₦{new Intl.NumberFormat('en-IN', {}).format(val.product.price)}</h4>
                                         <p className="listBy text-capitalize">Listed By {val.owner.business_name ?? "Business Name N/A"}</p>
                                         <p className="status text-capitalize">Status : {val.status ?? "N/A"}</p>
-                                        <p className="status text-capitalize">Date : {val.createdAt ?? "N/A"}</p>
+                                        {/* <p className="status text-capitalize">Date : {moment().format(`${val.createdAt.split("-")[0]}-${val.createdAt.split("-")[1]}-${val.createdAt.split("-")[2].split("T")[0]}`,) ?? "N/A"} </p> */}
+                                        <p className="status">Time : {moment(val.createdAt).startOf('mins').fromNow() ?? "N/A"} </p>
+                                        {console.log(val.createdAt.split("-")[2].split("T")[0], val.createdAt.split("-")[0], val.createdAt.split("-")[1] )}
                                     </div>
                                 </div>
                             )

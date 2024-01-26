@@ -97,6 +97,9 @@ export default function Single() {
           alert("error", "Something went error")
           orderbtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Order Now`
       })
+    }else if (user.role == undefined){
+      alert("info", "Login to create order")
+      window.location.href="/login"
     }else{
       alert("info", user.role + "s cannot place order!!")
       orderbtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Order Now`
