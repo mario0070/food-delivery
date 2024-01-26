@@ -135,7 +135,7 @@ export default function VendorDashboard() {
         })
       }
 
-    },[totalproduct, totalproduct, totalorder])
+    },[totalproduct, totalorder, activeOrder, closeOrder, spending ])
     
 
     return (
@@ -204,7 +204,7 @@ export default function VendorDashboard() {
                         <div className="box">
                           <p className="">Revenue</p>
                           <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
-                          <h4 className="">₦{!loaded ? <div class="text-center text-dark spinner-border spinner-border-sm"></div> : new Intl.NumberFormat('en-IN', {}).format(spending)}</h4>
+                          <h4 className="revenue">₦{!loaded ? <div class="text-center text-dark spinner-border spinner-border-sm"></div> : new Intl.NumberFormat('en-IN', {}).format(spending)}</h4>
                         </div>
                       </div>
                     }
@@ -244,7 +244,7 @@ export default function VendorDashboard() {
               </div>
           </div>
 
-          { user.role == "vendor" &&
+          { user.role == "vendors" &&
           <div className="section2 d-flex">
             <div className="box top_product">
                 <i class="fa-brands fa-product-hunt"></i>

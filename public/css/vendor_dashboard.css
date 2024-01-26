@@ -311,6 +311,13 @@
     margin-bottom: 2em;
 }
 
+.vendor_dashboard .revenue{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 90px;
+}
+
 .vendor_dashboard .section2 .box{
     box-shadow: .1em .1em 1em rgba(0, 0, 0, 0.098);
     padding: 1em;
