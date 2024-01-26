@@ -7,7 +7,7 @@ import phone from "/img/phone1.jpeg"
 import packages from "/img/Packages.jpg"
 import { useCookies } from 'react-cookie'
 import axios from '../utils/axios'
-// import moment from 'moment'
+import moment from 'moment'
 
 export default function allOrders() {
     const [role, setRole] = useState("Vendor")
@@ -65,7 +65,7 @@ export default function allOrders() {
             }
         });
     }
-
+if(cookie.user){
     return (
         <div className='vendor_dashboard'>
             <Sidebar role={role}/>
@@ -95,7 +95,7 @@ export default function allOrders() {
                                         <p className="listBy text-capitalize">Listed By {val.owner.business_name ?? "Business Name N/A"}</p>
                                         <p className="status text-capitalize">Status : {val.status ?? "N/A"}</p>
                                         {/* <p className="status text-capitalize">Date : {moment().format(`${val.createdAt.split("-")[0]}-${val.createdAt.split("-")[1]}-${val.createdAt.split("-")[2].split("T")[0]}`,) ?? "N/A"} </p> */}
-                                        {/* <p className="status">Time : {moment(val.createdAt).startOf('mins').fromNow() ?? "N/A"} </p> */}
+                                        <p className="status">Time : {moment(val.createdAt).startOf('mins').fromNow() ?? "N/A"} </p>
                                     </div>
                                 </div>
                             )
@@ -114,4 +114,8 @@ export default function allOrders() {
             </div>
         </div>
     )
+}
+else{
+    window.location.href = "/login"
+}
 }

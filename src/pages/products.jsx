@@ -6,7 +6,8 @@ import banner3 from "/img/home-banner3.jpg"
 import phone from "/img/phone1.jpeg"
 import packages from "/img/Packages.jpg"
 import { useCookies } from 'react-cookie'
-import axios from '../utils/axios'
+import aXios from '../utils/axios'
+import axios from 'axios'
 
 export default function Products() {
     const [role, setRole] = useState("Vendor")
@@ -19,6 +20,7 @@ export default function Products() {
     const description = useRef("")
     const price = useRef("")
     const [file, setFile] = useState();
+    const [img, setImg] = useState("")
 
     const toggle = () => {
         const topbar = document.querySelector(".topbar")
@@ -97,7 +99,7 @@ export default function Products() {
     }
 
     useEffect(() => {
-        axios.post("/product/vendor-product", {
+        aXios.post("/product/vendor-product", {
             id : user._id
         }).then(res => {
             setloaded(true)
@@ -110,17 +112,28 @@ export default function Products() {
 
     if(cookie.user){
 
+        let send = axios.create({
+            baseURL: 'https://swift-secure-api.onrender.com/',
+            headers: {
+                'Access-Control-Allow-Origin' : '*',
+                'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                'Content-Type': 'Multipart/Form-Data'
+            },
+        });
+
         const createProduct = (e) => {
             e.preventDefault();
             var submitbtn = document.querySelector(".submitbtn")
             submitbtn.innerHTML = `Processing <div class="spinner-border spinner-border-sm"></div>`
 
-            axios.post("/product/create", {
-                name : name.current.value,
-                price : price.current.value,
-                description : description.current.value,
-                owner : user._id,
+            send.post("/product/create", {
+                "name" : name.current.value,
+                "price" : price.current.value,
+                "description" : description.current.value,
+                "owner" : user._id,
+                "file" : img[0]
             }).then(res => {
+                console.log(res, img[0])
                 alert("success", "product is added successfully")
                 name.current.value = ""
                 price.current.value = ""
@@ -129,7 +142,7 @@ export default function Products() {
             })
             .catch(error => {
                 alert("error", "something went wrong")
-                console.log(error)
+                console.log(error, img[0])
                 submitbtn.innerHTML = "Add Product"
             })
         }
@@ -162,7 +175,7 @@ export default function Products() {
                                             <input ref={price} required type="text"  placeholder='Price'/>
                                             <input ref={description} required type="text"  placeholder='Description'/>
                                             <label htmlFor="file">Choose product image <i class="fa-solid fa-camera"></i></label>
-                                            <input type="file" onChange={handleChange} className='d-none' name="file" id="file" />
+                                            <input type="file" onChange={(e) => {setImg(e.target.files)}} ref={file} className='d-none' name="file" id="file" />
                                             <button className='btn submitbtn'>Add Product</button>
                                             <p className="text-muted arrow btn" onClick={closeForm}><i class="fa-solid fa-arrow-left"></i></p>
                                     </form>
