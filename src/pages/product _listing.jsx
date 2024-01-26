@@ -79,7 +79,7 @@ export default function ProductListing() {
                 return (
                     <div className="box">
                         <div className="overflow-hidden">
-                            <img src={packages} alt="" />
+                            <img src={val.image ? `https://swift-secure-api.onrender.com/images/${val.image}` : packages} alt="" />
                         </div>
                         <div className="p-3">
                             <p className="fw-bold mb-0 text-capitalize">{val.name}</p>

@@ -29,6 +29,7 @@ export default function Single() {
     })
     .then(res => {
         setLoaded(true)
+        console.log(res.data.data[0])
         setproduct(res.data.data[0])
         setowner(res.data.data[0].owner)
     })
@@ -61,7 +62,7 @@ export default function Single() {
     var phoneNumber = document.querySelector(".phone")
 
     if(address.current.value == ""){
-      alert("warning", "Enter a valid email address")
+      alert("warning", "Enter your full address")
       address.current.focus()
       addy.classList.add("error")
       phoneNumber.classList.remove("error")
@@ -129,7 +130,7 @@ export default function Single() {
           <>
             <div className="box left d-flex">
                 <div className="images">
-                  <img src={phone} alt="" />
+                  <img src={product.image ? `https://swift-secure-api.onrender.com/images/${product.image}` : packages} alt="" />
                 </div>
                 <div className="text">
                     <h4 className='fw-bold text-muted text-capitalize'>{product.name}</h4>
@@ -152,7 +153,7 @@ export default function Single() {
                     <div className="mt-3 mb-5">
                       <p className='fw-bold text-muted mb-1'>Seller</p>
                       <p className="desc mb-1 text-capitalize">Business Name: {owner.business_name ?? "N/A"}</p>
-                      <p className="desc mb-1 text-capitalize">Seller Name: {owner.firstname ?? "N/A"} {owner.firstname ?? "N/A"}</p>
+                      <p className="desc mb-1 text-capitalize">Seller Name: {owner.firstname ?? "N/A"} {owner.lastname ?? "N/A"}</p>
                       <p className="desc mb-1 text-capitalize">Email Address: {owner.email ?? "N/A"}</p>
                       <p className="desc mb-1 text-capitalize">Phone Number: {owner.phone ?? "N/A"}</p>
                     </div>

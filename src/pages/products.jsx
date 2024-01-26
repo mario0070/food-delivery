@@ -31,12 +31,6 @@ export default function Products() {
         sidebar.classList.toggle("active")
     }
 
-    function handleChange(e) {
-        // console.log(e.target.files);
-        console.log(file)
-        setFile(URL.createObjectURL(e.target.files[0]));
-    }
-
     const alert = (icon, msg) => {
         const Toast = Swal.mixin({
             toast: true,
@@ -66,14 +60,14 @@ export default function Products() {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.post("/product/delete", {
+                aXios.post("/product/delete", {
                     id : id
                 })
                 .then(res => {
-                    console.log(res)
+                    
                 })
                 .catch(err => {
-                    console.log(err)
+                    console.log(err, id)
                 })
               Swal.fire({
                 title: "Deleted!",
@@ -117,7 +111,7 @@ export default function Products() {
             headers: {
                 'Access-Control-Allow-Origin' : '*',
                 'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-                'Content-Type': 'Multipart/Form-Data'
+                'Content-Type': 'multipart/form-data'
             },
         });
 
@@ -126,19 +120,24 @@ export default function Products() {
             var submitbtn = document.querySelector(".submitbtn")
             submitbtn.innerHTML = `Processing <div class="spinner-border spinner-border-sm"></div>`
 
-            send.post("/product/create", {
-                "name" : name.current.value,
-                "price" : price.current.value,
-                "description" : description.current.value,
-                "owner" : user._id,
-                "file" : img[0]
-            }).then(res => {
-                console.log(res, img[0])
+            
+            const formData = new FormData()
+            formData.append('file', img[0])
+            formData.append('name', name.current.value)
+            formData.append('description', description.current.value)
+            formData.append('price', price.current.value)
+            formData.append('owner', user._id)
+            console.log(formData)
+
+            send.post("/product/create", 
+                formData
+            ).then(res => {
                 alert("success", "product is added successfully")
                 name.current.value = ""
                 price.current.value = ""
                 description.current.value = ""
                 submitbtn.innerHTML = "Add Product"
+                setImg("")
             })
             .catch(error => {
                 alert("error", "something went wrong")
@@ -184,7 +183,7 @@ export default function Products() {
                                 { product.map(val => {
                                     return(
                                         <div className="box">
-                                            <img src={packages} alt="" />
+                                            <img src={val.image ? `https://swift-secure-api.onrender.com/images/${val.image}` : packages} alt="" />
                                             <div className="text p-3">
                                                 <p className="fw-bold mb-0 text-capitalize">{val.name}</p>
                                                 <p className="text-muted desc info text-capitalize">{val.description}.</p>
