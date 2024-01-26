@@ -39,7 +39,7 @@ export default function allOrders() {
 
     const cancelOrder = (id) => {
         Swal.fire({
-            title: "Are you sure?",
+            title: "Are you sure? ",
             text: "You want to cancel this order!",
             icon: "question",
             showCancelButton: true,
