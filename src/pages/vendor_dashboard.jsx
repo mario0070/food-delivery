@@ -19,11 +19,15 @@ Chartjs.register(
 
 export default function VendorDashboard() {
   const [totalproduct, settotalproduct] = useState(0)
+  const [totalorder, settotaltotalorder] = useState(0)
   const [role, setRole] = useState("Vendor")
   const [loaded, setloaded] = useState(false)
   const [cookie, setCookie, removeCookie] = useCookies("")
   const [user, setUser] = useState(cookie.user ??  "")
   const [lineChart , setlineChart] = useState([])
+  const [spending , setspending] = useState(0)
+  const [activeOrder , setactive] = useState(0)
+  const [closeOrder , setclose] = useState(0)
 
   const barData = {
     labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
@@ -71,6 +75,34 @@ export default function VendorDashboard() {
         .catch(error => {
             console.log(error)
         })
+
+        axios.post("/order/vendor", {
+          owner : user._id
+        }).then(res => {
+          console.log(res)
+          setloaded(true)
+          settotaltotalorder(res.data.data.length)
+
+          var total = 0
+          var active = []
+          var close = []
+
+          for (let i = 0; i < res.data.data.length; i++) {
+            total += Number(res.data.data[i].product.price)
+            if(res.data.data[i].status == "active"){
+              active.push(i)
+            }
+            if(res.data.data[i].status == "cancel"){
+              close.push(i)
+            }
+          }
+          setspending(total)
+          setactive(active.length)
+          setclose(close.length)
+        })
+        .catch(error => {
+            console.log(error)
+        })
       }
 
       if(user.role == "user"){
@@ -80,13 +112,30 @@ export default function VendorDashboard() {
           console.log(res)
             setloaded(true)
             settotalproduct(res.data.data.length)
+            var total = 0
+            var active = []
+            var close = []
+
+            for (let i = 0; i < res.data.data.length; i++) {
+              total += Number(res.data.data[i].product.price)
+              if(res.data.data[i].status == "active"){
+                active.push(i)
+              }
+              if(res.data.data[i].status == "cancel"){
+                close.push(i)
+              }
+            }
+            setspending(total)
+            setactive(active.length)
+            setclose(close.length)
+            
         })
         .catch(error => {
             console.log(error)
         })
       }
 
-    },[totalproduct])
+    },[totalproduct, totalproduct, totalorder])
     
 
     return (
@@ -117,7 +166,7 @@ export default function VendorDashboard() {
                         <div className="content content2 p-3">
                           <h6 className='mb-4 fw-bold text-dark'>Monthly Earning</h6>
                           <p className="text-muted">This month</p>
-                          <h4 className="mb-4">₦0</h4>
+                          <h4 className="mb-4">₦{new Intl.NumberFormat('en-IN', {}).format(spending)}</h4>
                           <p className="text-muted">From previous period</p>
                           <button>View more</button>
                         </div>
@@ -127,7 +176,7 @@ export default function VendorDashboard() {
                         <div className="content content2 p-3">
                           <h6 className='mb-4 fw-bold text-dark'>Monthly Spending</h6>
                           <p className="text-muted">This month</p>
-                          <h4 className="mb-4">₦0</h4>
+                          <h4 className="mb-4">₦{new Intl.NumberFormat('en-IN', {}).format(spending)}</h4>
                           <p className="text-muted">From previous period</p>
                           <button>View more</button>
                         </div>
@@ -140,7 +189,7 @@ export default function VendorDashboard() {
                         <div className="box">
                             <p className="">Active Orders</p>
                             <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
-                            <h4 className="">0</h4>
+                            <h4 className="">{!loaded ? <div class="text-center text-dark spinner-border spinner-border-sm"></div> : new Intl.NumberFormat('en-IN', {}).format(activeOrder)}</h4>
                         </div>
                         <div className="box">
                             <p className="">Fufilled Orders</p>
@@ -150,12 +199,12 @@ export default function VendorDashboard() {
                         <div className="box">
                           <p className="">Total Products</p>
                             <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
-                          <h4 className="">{!loaded ? <div class="text-center text-dark spinner-border spinner-border-sm"></div> : totalproduct}</h4>
+                          <h4 className="">{!loaded ? <div class="text-center text-dark spinner-border spinner-border-sm"></div> : new Intl.NumberFormat('en-IN', {}).format(totalproduct)}</h4>
                         </div>
                         <div className="box">
                           <p className="">Revenue</p>
                           <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
-                          <h4 className="">₦0</h4>
+                          <h4 className="">₦{!loaded ? <div class="text-center text-dark spinner-border spinner-border-sm"></div> : new Intl.NumberFormat('en-IN', {}).format(spending)}</h4>
                         </div>
                       </div>
                     }
@@ -165,7 +214,7 @@ export default function VendorDashboard() {
                         <div className="box">
                             <p className="">Active Orders</p>
                             <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
-                            <h4 className="">{!loaded ? <div class="text-center text-dark spinner-border spinner-border-sm"></div> : totalproduct}</h4>
+                            <h4 className="">{!loaded ? <div class="text-center text-dark spinner-border spinner-border-sm"></div> : activeOrder}</h4>
                         </div>
                         <div className="box">
                             <p className="">Fufilled Orders</p>
@@ -175,7 +224,7 @@ export default function VendorDashboard() {
                         <div className="box">
                           <p className="">Closed Orders</p>
                             <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
-                          <h4 className="">0</h4>
+                          <h4 className="">{!loaded ? <div class="text-center text-dark spinner-border spinner-border-sm"></div> : closeOrder}</h4>
                         </div>
                         <div className="box">
                           <p className="">Total Orders</p>
@@ -185,6 +234,10 @@ export default function VendorDashboard() {
                       </div>
                     }
                       <div className="chart">
+                        <div className="d-flex mb-4 justify-content-between">
+                            <p className="mb-0"><i class="fa-brands fa-product-hunt"></i> Weekly Spending</p>
+                            <p className="mb-0"><i class="fa-solid fa-hand-holding-dollar"></i></p>
+                        </div>
                         <Bar data={barData} options={baroptions}></Bar>
                       </div>
                   </div>
