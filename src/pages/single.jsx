@@ -9,6 +9,7 @@ import phone from "/img/phone1.jpeg"
 import packages from "/img/Packages.jpg"
 import { useSearchParams } from 'react-router-dom'
 import axios from '../utils/axios'
+import loader from "/img/loader.gif"
 import { useCookies } from 'react-cookie'
 
 export default function Single() {
@@ -185,9 +186,9 @@ export default function Single() {
        </div>
 
         {!loaded &&
-          <div class="text-center mt-3 mb-5">
-              <div className=" text-success spinner-border mb-5 "></div>
-          </div>
+         <div className="text-center mb-5 mt-1">
+            <img src={loader} alt="" width={400} />
+        </div>
         }
 
        

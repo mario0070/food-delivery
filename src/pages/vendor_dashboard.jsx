@@ -24,16 +24,33 @@ export default function VendorDashboard() {
   if(cookie.user){
 
     useEffect(() => {
-      axios.post("/product/vendor-product", {
-          id : user._id
-      }).then(res => {
-        setloaded(true)
-        settotalproduct(res.data.data.length)
-      })
-      .catch(error => {
-          console.log(error)
-      })
+      if(user.role == "vendor"){
+        axios.post("/product/vendor-product", {
+            id : user._id
+        }).then(res => {
+          setloaded(true)
+          settotalproduct(res.data.data.length)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+      }
+
+      if(user.role == "user"){
+        axios.post("/order/orderby", {
+          orderBy : user._id
+        }).then(res => {
+          console.log(res)
+            setloaded(true)
+            settotalproduct(res.data.data.length)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+      }
+
     },[totalproduct])
+    
 
     return (
       <div className='vendor_dashboard d-flex'>
@@ -59,13 +76,25 @@ export default function VendorDashboard() {
                           <button><a href="/profile" className='text-white text-decoration-none'>View Profile</a></button>
                         </div>
                       </div>
-                      <div className="content content2 p-3">
-                        <h6 className='mb-4 fw-bold text-dark'>Monthly Earning</h6>
-                        <p className="text-muted">This month</p>
-                        <h4 className="mb-4">₦0</h4>
-                        <p className="text-muted">From previous period</p>
-                        <button>View more</button>
-                      </div>
+                      { user.role == "vendor" &&
+                        <div className="content content2 p-3">
+                          <h6 className='mb-4 fw-bold text-dark'>Monthly Earning</h6>
+                          <p className="text-muted">This month</p>
+                          <h4 className="mb-4">₦0</h4>
+                          <p className="text-muted">From previous period</p>
+                          <button>View more</button>
+                        </div>
+                      }
+
+                      { user.role == "user" &&
+                        <div className="content content2 p-3">
+                          <h6 className='mb-4 fw-bold text-dark'>Monthly Spending</h6>
+                          <p className="text-muted">This month</p>
+                          <h4 className="mb-4">₦0</h4>
+                          <p className="text-muted">From previous period</p>
+                          <button>View more</button>
+                        </div>
+                      }
                   </div>
 
                   <div className="right">
@@ -99,7 +128,7 @@ export default function VendorDashboard() {
                         <div className="box">
                             <p className="">Active Orders</p>
                             <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
-                            <h4 className="">0</h4>
+                            <h4 className="">{!loaded ? <div class="text-center text-dark spinner-border spinner-border-sm"></div> : totalproduct}</h4>
                         </div>
                         <div className="box">
                             <p className="">Fufilled Orders</p>
@@ -114,7 +143,7 @@ export default function VendorDashboard() {
                         <div className="box">
                           <p className="">Total Orders</p>
                           <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
-                          <h4 className="">0</h4>
+                          <h4 className="">{!loaded ? <div class="text-center text-dark spinner-border spinner-border-sm"></div> : totalproduct}</h4>
                         </div>
                       </div>
                     }
@@ -125,6 +154,7 @@ export default function VendorDashboard() {
               </div>
           </div>
 
+          { user.role == "vendor" &&
           <div className="section2 d-flex">
             <div className="box top_product">
                 <i class="fa-brands fa-product-hunt"></i>
@@ -201,6 +231,7 @@ export default function VendorDashboard() {
               <p className="">You do not have any notifications.</p>
             </div>
           </div>
+          }
 
           <div className="section3">
             <p className="text-center text-white">© Copyright 2016, All rights reserved</p>
