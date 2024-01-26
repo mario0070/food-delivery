@@ -821,3 +821,11 @@
     color: rgb(59, 180, 59);
     border-radius: 3px;
 }
+
+.single .addy.error, .single .phone.error{
+    border: 1px solid red !important;
+}
+
+.single .addy.error::placeholder, .single .phone.error::placeholder{
+    color: red;
+}

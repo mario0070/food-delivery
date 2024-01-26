@@ -17,6 +17,10 @@
     justify-content: space-evenly;
 }
 
+.vendor_dashboard .orders .products{
+    padding-top: 2em;
+}
+
 .vendor_dashboard .products .box{
     box-shadow: .1em .1em 1em rgba(0, 0, 0, 0.16);
     width: 300px;
@@ -35,7 +39,7 @@
 }
 
 .vendor_dashboard .products .status{
-    background-color: rgba(255, 0, 0, 0.08);
+    background-color: rgba(11, 74, 3, 0.08);
     padding: .1em .6em;
     font-size: 12px !important;
     width: fit-content;
