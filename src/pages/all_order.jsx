@@ -30,7 +30,6 @@ export default function allOrders() {
             orderBy : user._id
         }).then(res => {
             setloaded(true)
-            console.log(res)
             setproduct(res.data.data)
         })
         .catch(error => {
@@ -38,18 +37,18 @@ export default function allOrders() {
         })
     },[product])
 
-    const deleteProduct = (id) => {
+    const cancelOrder = (id) => {
         Swal.fire({
             title: "Are you sure?",
-            text: "You won't be able to revert this!",
+            text: "You want to cancel this order!",
             icon: "question",
             showCancelButton: true,
             confirmButtonColor: "#2a3042",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes, cancel"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.post("/product/delete", {
+                axios.post("/order/cancel", {
                     id : id
                 })
                 .then(res => {
@@ -59,8 +58,8 @@ export default function allOrders() {
                     console.log(err)
                 })
               Swal.fire({
-                title: "Deleted!",
-                text: "Your product has been deleted.",
+                title: "Order Cancelled!",
+                text: "Your order has been cancelled.",
                 icon: "success"
               });
             }
@@ -91,13 +90,12 @@ export default function allOrders() {
                                     <div className="text p-3">
                                         <p className="fw-bold mb-0 text-capitalize">{val.product.name}</p>
                                         <p className="text-muted desc info text-capitalize">{val.product.description}.</p>
-                                        <p className="text-danger btn" onClick={() => deleteProduct(val.product._id)}><i class="fa-solid fa-trash"></i></p>
+                                        <p className="text-danger btn" onClick={() => cancelOrder(val._id)}><i class="fa-solid fa-trash"></i></p>
                                         <h4 className='fw-bold mny'>₦{new Intl.NumberFormat('en-IN', {}).format(val.product.price)}</h4>
                                         <p className="listBy text-capitalize">Listed By {val.owner.business_name ?? "Business Name N/A"}</p>
                                         <p className="status text-capitalize">Status : {val.status ?? "N/A"}</p>
                                         {/* <p className="status text-capitalize">Date : {moment().format(`${val.createdAt.split("-")[0]}-${val.createdAt.split("-")[1]}-${val.createdAt.split("-")[2].split("T")[0]}`,) ?? "N/A"} </p> */}
                                         <p className="status">Time : {moment(val.createdAt).startOf('mins').fromNow() ?? "N/A"} </p>
-                                        {console.log(val.createdAt.split("-")[2].split("T")[0], val.createdAt.split("-")[0], val.createdAt.split("-")[1] )}
                                     </div>
                                 </div>
                             )
