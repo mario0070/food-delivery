@@ -188,7 +188,7 @@ export default function Products() {
                                                 <p className="fw-bold mb-0 text-capitalize">{val.name}</p>
                                                 <p className="text-muted desc info text-capitalize">{val.description}.</p>
                                                 <p className="text-danger btn" onClick={() => deleteProduct(val._id)}><i class="fa-solid fa-trash"></i></p>
-                                                <h4 className='fw-bold mny'>₦{new Intl.NumberFormat('en-IN', {}).format(val.price)}</h4>
+                                                <h4 className='fw-bold mny'>₦{val.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</h4>
                                             </div>
                                         </div>
                                     )

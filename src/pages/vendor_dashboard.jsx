@@ -29,6 +29,10 @@ export default function VendorDashboard() {
   const [activeOrder , setactive] = useState(0)
   const [closeOrder , setclose] = useState(0)
 
+  // function numberWithCommas(x) {
+  //   return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+  // }
+
   const barData = {
     labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     datasets: [{
@@ -166,7 +170,7 @@ export default function VendorDashboard() {
                         <div className="content content2 p-3">
                           <h6 className='mb-4 fw-bold text-dark'>Monthly Earning</h6>
                           <p className="text-muted">This month</p>
-                          <h4 className="mb-4">₦{new Intl.NumberFormat('en-IN', {}).format(spending)}</h4>
+                          <h4 className="mb-4">₦{spending.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</h4>
                           <p className="text-muted">From previous period</p>
                           <button>View more</button>
                         </div>
@@ -176,7 +180,7 @@ export default function VendorDashboard() {
                         <div className="content content2 p-3">
                           <h6 className='mb-4 fw-bold text-dark'>Monthly Spending</h6>
                           <p className="text-muted">This month</p>
-                          <h4 className="mb-4">₦{new Intl.NumberFormat('en-IN', {}).format(spending)}</h4>
+                          <h4 className="mb-4">₦{spending.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</h4>
                           <p className="text-muted">From previous period</p>
                           <button>View more</button>
                         </div>
@@ -204,7 +208,7 @@ export default function VendorDashboard() {
                         <div className="box">
                           <p className="">Revenue</p>
                           <p className="icon"><i class="fa-brands fa-first-order-alt"></i></p>
-                          <h4 className="revenue">₦{!loaded ? <div class="text-center text-dark spinner-border spinner-border-sm"></div> : new Intl.NumberFormat('en-IN', {}).format(spending)}</h4>
+                          <h4 className="revenue">₦{!loaded ? <div class="text-center text-dark spinner-border spinner-border-sm"></div> : spending.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</h4>
                         </div>
                       </div>
                     }

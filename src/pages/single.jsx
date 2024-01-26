@@ -134,8 +134,8 @@ export default function Single() {
                 </div>
                 <div className="text">
                     <h4 className='fw-bold text-muted text-capitalize'>{product.name}</h4>
-                    <h2 className="mny fw-bold mb-1">₦{new Intl.NumberFormat('en-IN', {}).format(product.price)}</h2>
-                    <p className="mb-1 disc">₦ {new Intl.NumberFormat('en-IN', {}).format(Number(product.price) + Number(500))}</p>
+                    <h2 className="mny fw-bold mb-1">₦{product.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</h2>
+                    <p className="mb-1 disc">₦ {Number(product.price - 10).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</p>
                     <p className="stock">in stock</p>
                     <p className="shipping">+ shipping from ₦550 to your location</p>
                     <button onClick={createOrder} className='btn orderbtn'><i class="fa-solid fa-cart-shopping"></i> Order Now</button>
