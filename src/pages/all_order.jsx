@@ -65,7 +65,7 @@ export default function allOrders() {
             }
         });
     }
-
+if(cookie.user){
     return (
         <div className='vendor_dashboard'>
             <Sidebar role={role}/>
@@ -114,4 +114,8 @@ export default function allOrders() {
             </div>
         </div>
     )
+}
+else{
+    window.location.href = "/login"
+}
 }
