@@ -5,6 +5,17 @@ import Sidebar from '../components/side_bar'
 import Topbar from '../components/topbar'
 import { useCookies } from 'react-cookie'
 import axios from '../utils/axios'
+import {Bar, Line, Pie, PolarArea} from "react-chartjs-2"
+import { Chart as Chartjs, BarElement, CategoryScale, LinearScale, LineElement, Tooltip, PointElement } from 'chart.js'
+
+Chartjs.register(
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  PointElement,
+  LineElement,
+)
 
 export default function VendorDashboard() {
   const [totalproduct, settotalproduct] = useState(0)
@@ -12,6 +23,32 @@ export default function VendorDashboard() {
   const [loaded, setloaded] = useState(false)
   const [cookie, setCookie, removeCookie] = useCookies("")
   const [user, setUser] = useState(cookie.user ??  "")
+  const [lineChart , setlineChart] = useState([])
+
+  const barData = {
+    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    datasets: [{
+      label: 'Price',
+      data : [10,40,67,9,30,29,10],
+      borderWidth: 0,
+      borderColor: ["green"],
+      pointBorderColor: ["#00FF80"],
+      backgroundColor: ["#2a3042"]
+    }]
+  }
+
+   const baroptions = {
+    scales : {
+      y : {
+        beginAtZero: true,
+        ticks:{
+          beginAtZero: true,
+          color: ["grey"],
+          callback: (value) => "₦" + value * 100
+        }
+      },
+    }
+  }
 
   const toggle = () => {
     const topbar = document.querySelector(".topbar")
@@ -148,7 +185,7 @@ export default function VendorDashboard() {
                       </div>
                     }
                       <div className="chart">
-                        
+                        <Bar data={barData} options={baroptions}></Bar>
                       </div>
                   </div>
               </div>
