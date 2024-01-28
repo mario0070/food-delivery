@@ -29,9 +29,6 @@ export default function VendorDashboard() {
   const [activeOrder , setactive] = useState(0)
   const [closeOrder , setclose] = useState(0)
 
-  // function numberWithCommas(x) {
-  //   return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
-  // }
 
   const barData = {
     labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
@@ -92,12 +89,14 @@ export default function VendorDashboard() {
           var close = []
 
           for (let i = 0; i < res.data.data.length; i++) {
-            total += Number(res.data.data[i].product.price)
-            if(res.data.data[i].status == "active"){
-              active.push(i)
-            }
-            if(res.data.data[i].status == "cancel"){
-              close.push(i)
+            if(res.data.data[i].product != null){
+              total += Number(res.data.data[i].product.price)
+              if(res.data.data[i].status == "active"){
+                active.push(i)
+              }
+              if(res.data.data[i].status == "cancel"){
+                close.push(i)
+              }
             }
           }
           setspending(total)
@@ -115,23 +114,25 @@ export default function VendorDashboard() {
         }).then(res => {
           console.log(res)
             setloaded(true)
-            settotalproduct(res.data.data.length)
             var total = 0
             var active = []
             var close = []
 
             for (let i = 0; i < res.data.data.length; i++) {
-              total += Number(res.data.data[i].product.price)
-              if(res.data.data[i].status == "active"){
-                active.push(i)
-              }
-              if(res.data.data[i].status == "cancel"){
-                close.push(i)
+              if(res.data.data[i].product){
+                total += Number(res.data.data[i].product.price)
+                if(res.data.data[i].status == "active"){
+                  active.push(i)
+                }
+                if(res.data.data[i].status == "cancel"){
+                  close.push(i)
+                }
               }
             }
             setspending(total)
             setactive(active.length)
             setclose(close.length)
+            settotalproduct(close.length + active.length)
             
         })
         .catch(error => {
