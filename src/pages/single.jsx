@@ -170,6 +170,11 @@ export default function Single() {
   function payWithPaystack(e) {
     e.preventDefault();
 
+    if(user.role != "user"){
+      alert("error", `${user.role} cannot place order`)
+      return
+    }
+
     let handler = PaystackPop.setup({
       key: 'pk_test_98e99f884464bd11201d04f1c2cebf94136083db',
       email,
