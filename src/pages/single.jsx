@@ -130,12 +130,12 @@ export default function Single() {
           <>
             <div className="box left d-flex">
                 <div className="images">
-                  <img src={product.image ? `https://swift-secure-api.onrender.com/images/${product.image}` : packages} alt="" />
+                  <img src={product.image ? `${product.image}` : packages} alt="" />
                 </div>
                 <div className="text">
                     <h4 className='fw-bold text-muted text-capitalize'>{product.name}</h4>
-                    <h2 className="mny fw-bold mb-1">₦{new Intl.NumberFormat('en-IN', {}).format(product.price)}</h2>
-                    <p className="mb-1 disc">₦ {new Intl.NumberFormat('en-IN', {}).format(Number(product.price) + Number(500))}</p>
+                    <h2 className="mny fw-bold mb-1">₦{product.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</h2>
+                    <p className="mb-1 disc">₦ {Number(product.price - 10).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</p>
                     <p className="stock">in stock</p>
                     <p className="shipping">+ shipping from ₦550 to your location</p>
                     <button onClick={createOrder} className='btn orderbtn'><i class="fa-solid fa-cart-shopping"></i> Order Now</button>
@@ -163,7 +163,7 @@ export default function Single() {
             <div className="box right">
                 <p className="fw-bold">DELIVERY & RETURNS</p>
                 <p className="mb-1">Enter your location</p>
-                <input type="text" placeholder='Enter your state' value="Kwara" />
+                <input type="text" placeholder='Enter your state' />
                 <input type="text" className='addy' ref={address} placeholder='Enter your full address' />
                 <input type="text" className='phone' ref={userphone}  placeholder='Enter your phone number' />
                 <div className="pick mt-3 d-flex">

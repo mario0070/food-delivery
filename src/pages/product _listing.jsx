@@ -79,13 +79,13 @@ export default function ProductListing() {
                 return (
                     <div className="box">
                         <div className="overflow-hidden">
-                            <img src={val.image ? `https://swift-secure-api.onrender.com/images/${val.image}` : packages} alt="" />
+                            <img src={val.image ? `${val.image}` : packages} alt="" />
                         </div>
                         <div className="p-3">
                             <p className="fw-bold mb-0 text-capitalize">{val.name}</p>
                             <p className="desc text-capitalize">{val.description}</p>
-                            <h4 className="mny mb-0 fw-bold">₦{new Intl.NumberFormat('en-IN', {}).format(val.price)}</h4>
-                            <p className="mb-2 discount">₦{new Intl.NumberFormat('en-IN', {}).format(Number(val.price) + 500)}</p>
+                            <h4 className="mny mb-0 fw-bold">₦{val.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</h4>
+                            <p className="mb-2 discount">₦{Number(val.price - 10).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</p>
                             <a href={'/product/' + val.name + '?uuid=' + val._id} className="icon btn mb-3 mt-2">view <i class="fa-solid fa-arrow-right"></i></a>
                             <p className="listed text-capitalize"><i class="fa-solid fa-check"></i> Listed by {val.owner.business_name ?? "N/A"}</p>
                         </div>

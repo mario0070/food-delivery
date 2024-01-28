@@ -86,13 +86,13 @@ if(cookie.user){
                         {product.map(val => {
                             return(
                                 <div className="box">
-                                    <img src={val.product.image ? `https://swift-secure-api.onrender.com/images/${val.product.image}` : packages} alt="" />
+                                    <img src={val.product.image ? `${val.product.image}` : packages} alt="" />
                                     <div className="text p-3">
                                         <p className="fw-bold mb-0 text-capitalize">{val.product.name}</p>
                                         <p className="text-muted desc info text-capitalize">{val.product.description}.</p>
                                         {val.status == "active" && <p className="text-danger btn" onClick={() => cancelOrder(val._id)}><i class="fa-solid fa-trash"></i></p>}
                                         {val.status == "cancel" && <p className="text-danger btn" onClick={() => alert("Order is already cancelled")}><i class="fa-solid fa-ban"></i></p>}
-                                        <h4 className='fw-bold mny'>₦{new Intl.NumberFormat('en-IN', {}).format(val.product.price)}</h4>
+                                        <h4 className='fw-bold mny'>₦{val.product.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</h4>
                                         <p className="listBy text-capitalize">Listed By {val.owner.business_name ?? "Business Name N/A"}</p>
                                         {val.status == "active" && <p className="status text-capitalize">Status : {val.status ?? "N/A"}</p>}
                                         {val.status == "cancel" && <p className="status bg-danger text-light text-capitalize">Status : {"Cancelled" ?? "N/A"}</p>}
