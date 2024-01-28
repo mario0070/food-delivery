@@ -11,7 +11,7 @@ import { useSearchParams } from 'react-router-dom'
 import axios from '../utils/axios'
 import loader from "/img/loader.gif"
 import { useCookies } from 'react-cookie'
-import { PaystackButton } from "react-paystack"
+// import { PaystackButton } from "react-paystack"
 
 export default function Single() {
   const [queryParameters] = useSearchParams()
@@ -47,19 +47,19 @@ export default function Single() {
     }
   }
 
-  const componentProps = {
-    email,
-    amount,
-    metadata: {
-      name,
-      phone,
-    },
-    publicKey,
-    text: "Pay Now",
-    onSuccess: () =>
-      reqApi(),
-    onClose: () => alert("warning", "Transaction not completed"),
-  }
+  // const componentProps = {
+  //   email,
+  //   amount,
+  //   metadata: {
+  //     name,
+  //     phone,
+  //   },
+  //   publicKey,
+  //   text: "Pay Now",
+  //   onSuccess: () =>
+  //     reqApi(),
+  //   onClose: () => alert("warning", "Transaction not completed"),
+  // }
 
   const reqApi = () => {
     alert("success","Thanks for doing business with us! Come back soon!!")
@@ -167,6 +167,27 @@ export default function Single() {
     }
   }
 
+  function payWithPaystack(e) {
+    e.preventDefault();
+
+    let handler = PaystackPop.setup({
+      key: 'pk_test_98e99f884464bd11201d04f1c2cebf94136083db',
+      email,
+      amount,
+      name,
+      ref: ''+Math.floor((Math.random() * 1000000000) + 1),
+      onClose: function(){
+        alert("warning", "Transaction not completed");
+      },
+      callback: function(response){
+        reqApi()
+      }
+    });
+
+    handler.openIframe();
+  }
+
+
   return (
     <div className='landing single'>
        <Landing_top/>
@@ -189,9 +210,11 @@ export default function Single() {
                       <>
                         {!isFill && <button onClick={mainOrder} className='btn orderbtn'><i class="fa-solid fa-cart-shopping"></i> Order Now</button>}
 
-                        {isFill && <PaystackButton className='btn orderbtn' {...componentProps} />}
+                        {/* {isFill && <PaystackButton className='btn orderbtn' {...componentProps} />} */}
+                        {isFill && <button onClick={payWithPaystack} className='paymentForm btn orderbtn'><i class="fa-solid fa-cart-shopping"></i> Order Now</button>}
                       </>
                     }
+                    
                     <div className='btn qty mt-4 d-flex'>
                       <i className="btn fa-solid fa-minus" onClick={decrease}></i> 
                         <span>{quantity}</span>
