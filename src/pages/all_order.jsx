@@ -15,6 +15,9 @@ export default function allOrders() {
     const [user, setUser] = useState(cookie.user ??  "")
     const [product, setproduct] = useState([])
     const [loaded, setloaded] = useState(false)
+    const [activeOrder , setactive] = useState(0)
+    const [closeOrder , setclose] = useState(0)
+    const [totalorder, settotaltotalorder] = useState(0)
 
     const toggle = () => {
         const topbar = document.querySelector(".topbar")
@@ -31,6 +34,25 @@ export default function allOrders() {
         }).then(res => {
             setloaded(true)
             setproduct(res.data.data)
+            var total = 0
+            var active = []
+            var close = []
+  
+            for (let i = 0; i < res.data.data.length; i++) {
+              if(res.data.data[i].product != null){
+                total += Number(res.data.data[i].product.price)
+                if(res.data.data[i].status == "active"){
+                  active.push(i)
+                }
+                if(res.data.data[i].status == "cancel"){
+                  close.push(i)
+                }
+              }
+            }
+            
+            setactive(active.length)
+            setclose(close.length)
+            settotaltotalorder(close.length + active.length)
         })
         .catch(error => {
             console.log(error)
@@ -75,10 +97,10 @@ if(cookie.user){
 
                 <div className="special orders">
                     <div className="top nav-tabs d-flex" role="tablist">
-                        <p data-bs-toggle="tab" className="mb-0 nav-link active">Active Orders ({product.length})</p>
+                        <p data-bs-toggle="tab" className="mb-0 nav-link active">Active Orders ({activeOrder})</p>
                         <p data-bs-toggle="tab" className="mb-0 nav-link ">Fulfilled Orders (0)</p>
-                        <p data-bs-toggle="tab" className="mb-0 nav-link ">Closed Orders (0)</p>
-                        <p data-bs-toggle="tab" className="mb-0 nav-link">All Orders ({product.length})</p>
+                        <p data-bs-toggle="tab" className="mb-0 nav-link ">Closed Orders ({closeOrder})</p>
+                        <p data-bs-toggle="tab" className="mb-0 nav-link">All Orders ({totalorder})</p>
                     </div>
 
                     <div className="products d-flex">
