@@ -11,6 +11,7 @@ import { useSearchParams } from 'react-router-dom'
 import axios from '../utils/axios'
 import loader from "/img/loader.gif"
 import { useCookies } from 'react-cookie'
+import { PaystackButton } from "react-paystack"
 
 export default function Single() {
   const [queryParameters] = useSearchParams()
@@ -22,14 +23,102 @@ export default function Single() {
   const [user, setUser] = useState(cookie.user ??  "")
   const address = useRef("")
   const userphone = useRef("")
+  const state = useRef("")
+  const publicKey = "pk_test_98e99f884464bd11201d04f1c2cebf94136083db"
+  const [email, setEmail] = useState(user.email)
+  const [name, setName] = useState(user.name)
+  const [phone, setPhone] = useState(user.phone)
+  const [amount, setprice] = useState(0)
+  const [isFill, setisFill] = useState(false)
+  const [inputs, setinputs] = useState("")
+
+  const typeChange = () => {    
+    if(state.current.value == "" || address.current.value == "" || userphone.current.value == ""){
+        setisFill(false)
+    }else{
+      setisFill(true)
+    }
+  }
+
+  const componentProps = {
+    email,
+    amount,
+    metadata: {
+      name,
+      phone,
+    },
+    publicKey,
+    text: "Pay Now",
+    onSuccess: () =>
+      alert("success","Thanks for doing business with us! Come back soon!!"),
+    onClose: () => alert("warning", "Transaction not completed"),
+  }
+
+  const mainOrder = () => {
+    var orderbtn = document.querySelector(".orderbtn")
+    var addy = document.querySelector(".addy")
+    var phoneNumber = document.querySelector(".phone")
+    var states = document.querySelector(".state")
+
+    
+    if(state.current.value == ""){
+      alert("warning", "Enter your state location")
+      state.current.focus()
+      addy.classList.remove("error")
+      phoneNumber.classList.remove("error")
+      states.classList.add("error")
+      return;
+    }
+
+    if(address.current.value == ""){
+      alert("warning", "Enter your full address")
+      address.current.focus()
+      addy.classList.add("error")
+      phoneNumber.classList.remove("error")
+      state.classList.remove("error")
+      return;
+    }
+
+    if(userphone.current.value == ""){
+      alert("warning", "Enter a valid phone number")
+      userphone.current.focus()
+      addy.classList.remove("error")
+      phoneNumber.classList.add("error")
+      state.classList.remove("error")
+      return;
+    }
+
+    addy.classList.remove("error")
+    states.classList.remove("error")
+    phoneNumber.classList.remove("error")
+    setisFill(true)
+
+    // axios.post("/order/create", {
+    //   orderBy : user._id,
+    //   owner : product.owner._id,
+    //   product : product._id,
+    // })
+    // .then(res => {
+    //     orderbtn.innerHTML = `Done <i class="fa-solid fa-check"></i>`
+    //     alert("success", "Order created successfully😃")
+    //     setTimeout(() => {
+    //       orderbtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Order Again`
+    //     },2000)
+    // })
+    // .catch(error => {
+    //     console.log(error)
+    //     alert("error", "Something went error")
+    //     orderbtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Order Now`
+    // })
+  }
 
   useEffect(() => {
     axios.post("/product/show", {
       id : queryParameters.get("uuid")
     })
     .then(res => {
+        setprice(res.data.data[0].price * 100)
         setLoaded(true)
-        console.log(res.data.data[0])
         setproduct(res.data.data[0])
         setowner(res.data.data[0].owner)
     })
@@ -56,57 +145,9 @@ export default function Single() {
       });
   }
 
-  const createOrder = () => {
-    var orderbtn = document.querySelector(".orderbtn")
-    var addy = document.querySelector(".addy")
-    var phoneNumber = document.querySelector(".phone")
-
-    if(address.current.value == ""){
-      alert("warning", "Enter your full address")
-      address.current.focus()
-      addy.classList.add("error")
-      phoneNumber.classList.remove("error")
-      return;
-    }
-
-    if(userphone.current.value == ""){
-      alert("warning", "Enter a valid phone number")
-      userphone.current.focus()
-      addy.classList.remove("error")
-      phoneNumber.classList.add("error")
-      return;
-    }
-    
-    orderbtn.innerHTML = `Processing <div class="text-center spinner-border spinner-border-sm"></div>`
-    addy.classList.remove("error")
-    phoneNumber.classList.remove("error")
-
-    if(user.role == "user"){
-      axios.post("/order/create", {
-        orderBy : user._id,
-        owner : product.owner._id,
-        product : product._id,
-      })
-      .then(res => {
-          orderbtn.innerHTML = `Done <i class="fa-solid fa-check"></i>`
-          alert("success", "Order created successfully😃")
-          setTimeout(() => {
-            orderbtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Order Again`
-          },2000)
-      })
-      .catch(error => {
-          console.log(error)
-          alert("error", "Something went error")
-          orderbtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Order Now`
-      })
-    }else if (user.role == undefined){
-      alert("info", "Login to create order")
-      window.location.href="/login"
-    }else{
-      alert("info", user.role + "s cannot place order!!")
-      orderbtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Order Now`
-    }
-    
+  const guestOrder = () => {
+    alert("info", "Login to create order")
+    window.location.href="/login"
   }
   
 
@@ -138,7 +179,14 @@ export default function Single() {
                     <p className="mb-1 disc">₦ {Number(product.price - 10).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</p>
                     <p className="stock">in stock</p>
                     <p className="shipping">+ shipping from ₦550 to your location</p>
-                    <button onClick={createOrder} className='btn orderbtn'><i class="fa-solid fa-cart-shopping"></i> Order Now</button>
+                    {!user && <button onClick={guestOrder} className='btn orderbtn'><i class="fa-solid fa-cart-shopping"></i> Order Now</button>}
+                    {user && 
+                      <>
+                        {!isFill && <button onClick={mainOrder} className='btn orderbtn'><i class="fa-solid fa-cart-shopping"></i> Order Now</button>}
+
+                        {isFill && <PaystackButton className='btn orderbtn' {...componentProps} />}
+                      </>
+                    }
                     <div className='btn qty mt-4 d-flex'>
                       <i className="btn fa-solid fa-minus" onClick={decrease}></i> 
                         <span>{quantity}</span>
@@ -163,9 +211,9 @@ export default function Single() {
             <div className="box right">
                 <p className="fw-bold">DELIVERY & RETURNS</p>
                 <p className="mb-1">Enter your location</p>
-                <input type="text" placeholder='Enter your state' />
-                <input type="text" className='addy' ref={address} placeholder='Enter your full address' />
-                <input type="text" className='phone' ref={userphone}  placeholder='Enter your phone number' />
+                <input onChange={typeChange} type="text" className='state' placeholder='Enter your state' ref={state} />
+                <input onChange={typeChange} type="text" className='addy' ref={address} placeholder='Enter your full address' />
+                <input onChange={typeChange} type="text" className='phone' ref={userphone}  placeholder='Enter your phone number' />
                 <div className="pick mt-3 d-flex">
                   <i class="fa-solid fa-hockey-puck"></i>
                   <div className="text">

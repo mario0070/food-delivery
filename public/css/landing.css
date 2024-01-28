@@ -829,3 +829,11 @@
 .single .addy.error::placeholder, .single .phone.error::placeholder{
     color: red;
 }
+
+.single .state.error{
+    border: 1px solid red !important;
+}
+
+.single .state.error::placeholder{
+    color: red;
+}
