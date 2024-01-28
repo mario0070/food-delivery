@@ -33,10 +33,17 @@ export default function Single() {
   const [inputs, setinputs] = useState("")
 
   const typeChange = () => {    
+    var addy = document.querySelector(".addy")
+    var phoneNumber = document.querySelector(".phone")
+    var states = document.querySelector(".state")
+
     if(state.current.value == "" || address.current.value == "" || userphone.current.value == ""){
         setisFill(false)
     }else{
       setisFill(true)
+      addy.classList.remove("error")
+      states.classList.remove("error")
+      phoneNumber.classList.remove("error")
     }
   }
 
@@ -50,8 +57,24 @@ export default function Single() {
     publicKey,
     text: "Pay Now",
     onSuccess: () =>
-      alert("success","Thanks for doing business with us! Come back soon!!"),
+      reqApi(),
     onClose: () => alert("warning", "Transaction not completed"),
+  }
+
+  const reqApi = () => {
+    alert("success","Thanks for doing business with us! Come back soon!!")
+    axios.post("/order/create", {
+      orderBy : user._id,
+      owner : product.owner._id,
+      product : product._id,
+    })
+    .then(res => {
+        alert("success", "Order created successfully😃")
+    })
+    .catch(error => {
+        console.log(error)
+        alert("error", "Something went error")
+    })
   }
 
   const mainOrder = () => {
@@ -75,7 +98,7 @@ export default function Single() {
       address.current.focus()
       addy.classList.add("error")
       phoneNumber.classList.remove("error")
-      state.classList.remove("error")
+      states.classList.remove("error")
       return;
     }
 
@@ -84,7 +107,7 @@ export default function Single() {
       userphone.current.focus()
       addy.classList.remove("error")
       phoneNumber.classList.add("error")
-      state.classList.remove("error")
+      states.classList.remove("error")
       return;
     }
 
@@ -92,24 +115,6 @@ export default function Single() {
     states.classList.remove("error")
     phoneNumber.classList.remove("error")
     setisFill(true)
-
-    // axios.post("/order/create", {
-    //   orderBy : user._id,
-    //   owner : product.owner._id,
-    //   product : product._id,
-    // })
-    // .then(res => {
-    //     orderbtn.innerHTML = `Done <i class="fa-solid fa-check"></i>`
-    //     alert("success", "Order created successfully😃")
-    //     setTimeout(() => {
-    //       orderbtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Order Again`
-    //     },2000)
-    // })
-    // .catch(error => {
-    //     console.log(error)
-    //     alert("error", "Something went error")
-    //     orderbtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Order Now`
-    // })
   }
 
   useEffect(() => {
