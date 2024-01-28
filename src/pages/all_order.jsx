@@ -86,7 +86,7 @@ if(cookie.user){
                         {product.map(val => {
                             return(
                                 <div className="box">
-                                    <img src={val.product.image ? `https://swift-secure-api.onrender.com/images/${val.product.image}` : packages} alt="" />
+                                    <img src={val.product.image ? `${val.product.image}` : packages} alt="" />
                                     <div className="text p-3">
                                         <p className="fw-bold mb-0 text-capitalize">{val.product.name}</p>
                                         <p className="text-muted desc info text-capitalize">{val.product.description}.</p>

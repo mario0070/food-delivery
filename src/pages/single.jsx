@@ -130,7 +130,7 @@ export default function Single() {
           <>
             <div className="box left d-flex">
                 <div className="images">
-                  <img src={product.image ? `https://swift-secure-api.onrender.com/images/${product.image}` : packages} alt="" />
+                  <img src={product.image ? `${product.image}` : packages} alt="" />
                 </div>
                 <div className="text">
                     <h4 className='fw-bold text-muted text-capitalize'>{product.name}</h4>
@@ -163,7 +163,7 @@ export default function Single() {
             <div className="box right">
                 <p className="fw-bold">DELIVERY & RETURNS</p>
                 <p className="mb-1">Enter your location</p>
-                <input type="text" placeholder='Enter your state' value="Kwara" />
+                <input type="text" placeholder='Enter your state' />
                 <input type="text" className='addy' ref={address} placeholder='Enter your full address' />
                 <input type="text" className='phone' ref={userphone}  placeholder='Enter your phone number' />
                 <div className="pick mt-3 d-flex">

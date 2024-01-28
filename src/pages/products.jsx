@@ -183,7 +183,7 @@ export default function Products() {
                                 { product.map(val => {
                                     return(
                                         <div className="box">
-                                            <img src={val.image ? `https://swift-secure-api.onrender.com/images/${val.image}` : packages} alt="" />
+                                            <img src={val.image ? `${val.image}` : packages} alt="" />
                                             <div className="text p-3">
                                                 <p className="fw-bold mb-0 text-capitalize">{val.name}</p>
                                                 <p className="text-muted desc info text-capitalize">{val.description}.</p>
