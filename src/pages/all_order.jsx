@@ -85,6 +85,7 @@ if(cookie.user){
                         {!loaded && <div class="text-center text-dark spinner-border mt-5"></div> }
                         {product.map(val => {
                             return(
+                                val.product &&
                                 <div className="box">
                                     <img src={val.product.image ? `${val.product.image}` : packages} alt="" />
                                     <div className="text p-3">
