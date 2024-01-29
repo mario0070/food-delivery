@@ -16,6 +16,7 @@ export default function Chat() {
   const [agent, setagent] = useState([])
   const [loaded, setloaded] = useState(true)
   const [recName, setrecName] = useState("Start Conversation")
+  const [recID, setrecID] = useState("")
 
   const toggle = () => {
     const topbar = document.querySelector(".topbar")
@@ -57,6 +58,7 @@ export default function Chat() {
         </div>
       </div>`)
       $(".msg-container").scrollTop($(".msg-container").height()*200);
+      sendMsgApi(recID,msgInputs.current.value)
       msgInputs.current.value = ""
     }else{
       alert("warning","Please type a message")
@@ -72,10 +74,11 @@ export default function Chat() {
     .catch(error => {
         console.log(error)
     })
-  },[agent])
+  },[agent, chat])
 
   const fetchMsg = (recipient, name) => {
     setrecName(name)
+    setrecID(recipient)
     setloaded(false)
     axios.post("/chat/conversation", {
       recipient : recipient,
@@ -83,6 +86,20 @@ export default function Chat() {
     }).then(res => {
         setloaded(true)
         setchat(res.data.data)
+        $(".msg-container").scrollTop($(".msg-container").height()*200);
+    })
+    .catch(error => {
+        console.log(error)
+    })
+  }
+
+  const sendMsgApi = (recipient, msg) => {
+    axios.post("/chat/create", {
+      recipient : recipient,
+      sender : user._id,
+      msg : msg
+    }).then(res => {
+      console.log(res)
     })
     .catch(error => {
         console.log(error)
