@@ -140,7 +140,10 @@ export default function Chat() {
                 <div className="recent">
                   <p className="mb-2 text-muted">Recent</p>
                   <div className="box">
-                    {user.role == "vendor" && agent.map((val, index) => {
+                    {
+                      agent.length <= 0 && <div className='text-center mt-5'><div class="spinner-border text-dark"></div></div>
+                    }
+                    {agent.length > 0 && user.role == "vendor" && agent.map((val, index) => {
                       if(val.role != "vendor"){
                         return (
                             <div onClick={() => fetchMsg(val._id,`${val.firstname} ${val.lastname}`)} className="d-flex mt-2 single">
@@ -158,7 +161,7 @@ export default function Chat() {
                       }
                     })}
 
-                    {user.role == "user" && agent.map((val, index) => {
+                    {agent.length > 0 && user.role == "user" && agent.map((val, index) => {
                       if(val.role != "user"){
                         return (
                             <div onClick={() => fetchMsg(val._id, `${val.firstname} ${val.lastname}`)} className="d-flex mt-2 single">
