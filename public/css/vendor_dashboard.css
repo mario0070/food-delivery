@@ -393,3 +393,24 @@
     padding-bottom: .1em;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+.mobile_sidebar{
+    background-color: var(--primary);
+}
+
+.mobile_sidebar a{
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+.mobile_sidebar i{
+    color: var(--secondary) !important;
+    text-decoration: none;
+    margin-right: .5em;
+    transform: translateY(0) !important;
+}
+
+
+.mobile_sidebar p{
+    margin-bottom: 3em !important;
+}
