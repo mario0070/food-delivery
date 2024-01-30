@@ -49,7 +49,6 @@ export default function allOrders() {
                 }
               }
             }
-            
             setactive(active.length)
             setclose(close.length)
             settotaltotalorder(close.length + active.length)

@@ -119,7 +119,7 @@ export default function VendorDashboard() {
             var close = []
 
             for (let i = 0; i < res.data.data.length; i++) {
-              if(res.data.data[i].product){
+              if(res.data.data[i].product != null){
                 total += Number(res.data.data[i].product.price)
                 if(res.data.data[i].status == "active"){
                   active.push(i)
